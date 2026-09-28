@@ -1,0 +1,159 @@
+LEEME.TXT - SITIO WEB PERSONAL DE MANUEL GARCIA BALDO
+====================================================
+
+1. DESCRIPCION
+--------------
+Sitio web personal y academico de Manuel Garcia Baldo, desarrollado para la
+asignatura Estandares y Computacion Web del Master Universitario en Ingenieria
+Web de la Universidad de Oviedo.
+
+El sitio contiene cinco paginas: inicio, perfil y CV, proyectos, tecnologia y
+estudios, y ocio y tiempo libre. Incluye informacion personal y academica,
+informacion de contacto, proyectos, fotografias y contenido multimedia mediante
+elementos HTML5 de audio y video.
+
+2. TECNOLOGIAS Y MOTIVOS DE ELECCION
+------------------------------------
+- HTML5: estructura el contenido mediante elementos semanticos y proporciona
+  los elementos nativos necesarios para imagenes, audio y video.
+- CSS3: define la presentacion mediante hojas de estilo externas, separadas
+  por areas del sitio, facilitando el mantenimiento y la adaptacion a distintos
+  tamaños de pantalla.
+- JavaScript: se utiliza desde un archivo externo para pequeñas mejoras de
+  comportamiento. El contenido principal del sitio no depende de JavaScript.
+- Node.js y npm: permiten instalar las dependencias y ejecutar las tareas de
+  desarrollo y generacion del sitio.
+- Eleventy (11ty): generador de sitios estaticos que convierte las plantillas
+  en paginas HTML listas para publicar.
+- Nunjucks: motor de plantillas utilizado por Eleventy para reutilizar la
+  estructura comun del sitio, incluyendo la cabecera, navegacion, migas de
+  pan y pie de pagina.
+
+Eleventy es la unica dependencia de desarrollo directa del proyecto. No se
+utilizan frameworks de interfaz ni bibliotecas JavaScript adicionales. Esta
+seleccion mantiene el sitio ligero y permite conservar una estructura
+homogenea entre todas las paginas.
+
+3. CONTENIDO Y ESTRUCTURA
+-------------------------
+src/                         Codigo fuente del sitio
+  _includes/base.njk         Plantilla compartida por las paginas
+  index.njk                  Inicio e informacion personal
+  perfil.njk                 Perfil, trayectoria y CV
+  proyectos.njk              Proyectos
+  intereses-profesionales.njk   Tecnologia y estudios
+  ocio.njk                   Ocio y tiempo libre
+  css/                       Hojas de estilo
+  js/main.js                 JavaScript del sitio
+  img/                       Fotografias, logotipos e iconos
+  audio/                     Archivo de audio
+  video/                     Archivo de video
+  docs/                      Documentos, incluido el CV en PDF
+.eleventy.js                 Configuracion de Eleventy
+package.json                 Dependencias y comandos npm
+public/                      Sitio generado; no editar manualmente
+
+La plantilla base contiene la estructura comun del sitio y las paginas
+individuales proporcionan el contenido especifico de cada seccion.
+
+Las paginas resultantes se organizan en:
+  /                         Inicio
+  /perfil/                  Perfil y CV
+  /proyectos/               Proyectos
+  /intereses-profesionales/ Tecnologia y estudios
+  /ocio/                    Ocio y tiempo libre
+
+Los recursos como imagenes, hojas de estilo, scripts, documentos, audio y
+video se incluyen en el sitio generado durante el proceso de construccion.
+
+4. REQUISITOS Y USO
+-------------------
+Se necesita Node.js y npm instalados.
+
+Instalar las dependencias desde la carpeta del proyecto:
+  npm install
+
+Generar el sitio estatico en public/:
+  npm run build
+
+Iniciar el servidor de desarrollo:
+  npm start
+
+El comando npm start ejecuta Eleventy con la opcion --serve y el puerto
+configurado en package.json. Si el puerto configurado no esta disponible,
+se puede generar el sitio con npm run build y servir posteriormente la
+carpeta public/ mediante cualquier servidor estatico local.
+
+5. ESTANDARES Y ACCESIBILIDAD
+-----------------------------
+El sitio esta desarrollado siguiendo los estandares actuales de HTML5 y CSS3.
+
+La estructura HTML utiliza elementos semanticos como header, nav, main, section,
+article, footer, figure, figcaption, audio y video, evitando el uso innecesario
+de elementos genericos para estructurar el contenido.
+
+Las paginas declaran correctamente el idioma del documento mediante el
+atributo lang y utilizan una estructura de encabezados jerarquica.
+
+La presentacion se realiza mediante hojas de estilo CSS externas, sin utilizar
+estilos CSS en linea. La estructura de las hojas de estilo utiliza selectores
+basados en los elementos HTML y no depende de identificadores o clases creados
+exclusivamente para aplicar estilos.
+
+El sitio incorpora medidas de accesibilidad como:
+- Enlace para saltar directamente al contenido principal.
+- Navegacion semantica y etiquetas aria-label cuando son necesarias para
+  diferenciar zonas de navegacion.
+- Indicacion de la pagina actual mediante aria-current.
+- Migas de pan para facilitar la orientacion dentro del sitio.
+- Texto alternativo para las imagenes.
+- Elementos nativos de HTML5 para la reproduccion de audio y video.
+- Controles de foco visibles para facilitar la navegacion mediante teclado.
+- Diseño adaptable a diferentes tamaños de pantalla.
+
+El HTML generado se comprueba mediante W3C validator y las hojas de estilo
+se comprueban mediante el validador CSS del W3C. Se han corregido errores de
+sintaxis y se utiliza la sintaxis propia de HTML5 para los elementos vacios.
+
+6. CONTENIDO DE LAS PAGINAS
+---------------------------
+Inicio:
+Presentacion general, informacion personal y acceso al resto de secciones
+del sitio.
+
+Perfil:
+Informacion academica y profesional, trayectoria, conocimientos y CV.
+
+Proyectos:
+Descripcion de proyectos y trabajos relacionados con la formacion y el
+desarrollo de software.
+
+Tecnologia y estudios:
+Contenido relacionado con desarrollo de software, sistemas e infraestructura,
+redes y comunicaciones, y seguridad informatica.
+
+Ocio y tiempo libre:
+Informacion sobre videojuegos, musica, actualidad, cine y series, naturaleza
+y rutas. Esta pagina incorpora tambien los recursos multimedia obligatorios.
+
+7. RECURSOS MULTIMEDIA
+----------------------
+El sitio incluye recursos multimedia integrados mediante elementos HTML5
+nativos.
+
+Audio:
+  /audio/nino-bravo-un-beso-y-una-flor.mp3
+
+El audio corresponde a "Un beso y una flor", de Nino Bravo, indicada como
+una de las canciones favoritas del autor.
+
+Video:
+  /video/video-presentacion.mp4
+
+El video muestra un paisaje invernal con nieve en el pueblo y se integra en
+la seccion de ocio y tiempo libre.
+
+Ambos recursos disponen de controles nativos de reproduccion y de un enlace
+alternativo para poder acceder directamente al archivo.
+
+====================================================

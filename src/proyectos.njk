@@ -1,0 +1,143 @@
+---
+layout: base.njk
+title: Proyectos
+description: Portfolio de proyectos software y despliegue de infraestructuras.
+breadcrumb: Proyectos
+---
+
+<section aria-label="Listado de proyectos destacados">
+  <header>
+    <h1>Proyectos y Portfolio</h1>
+    <p>
+      Selección de proyectos de desarrollo de software y despliegue de
+      infraestructuras.
+    </p>
+  </header>
+  <!-- Proyecto Destacado: Carburo -->
+  <article aria-labelledby="carburo-title">
+    <header>
+        <h2 id="carburo-title">Carburo — Gestión Inteligente de Combustible</h2>
+        <p>Trabajo de Fin de Grado (TFG) &amp; Ecosistema Móvil y Web</p>
+    </header>
+
+    <section>
+      <p>
+        <strong>Carburo</strong> es una plataforma integral orientada a
+        optimizar el gasto de combustible de los usuarios, proporcionando
+        información en tiempo real sobre estaciones de servicio, fluctuación de
+        precios y registro detallado de consumos y repostajes.
+      </p>
+
+      <section aria-label="Componentes del ecosistema Carburo">
+        <article>
+          <h3>Aplicación Móvil Nativa (TFG Principal)</h3>
+          <p>
+            Constituye el núcleo del Trabajo de Fin de Grado en Ingeniería
+            Informática del Software. Desarrollada de forma nativa para la
+            plataforma Android, implementa geolocalización, filtrado por tipo de
+            carburante, comparativa visual de precios y registro analítico de
+            eficiencia de combustible de los vehículos registrados.
+          </p>
+        </article>
+
+        <article>
+          <h3>Plataforma Web y Servicios Complementarios</h3>
+          <p>
+            Desarrollo complementario que expande el ecosistema hacia la web,
+            permitiendo a los usuarios consultar resúmenes estadísticos, mapas
+            interactivos de gasolineras y gestionar perfiles desde cualquier
+            navegador.
+          </p>
+        </article>
+      </section>
+
+      <h3>Arquitectura y Tecnologías Empleadas</h3>
+      <p>
+        El ecosistema se apoya sobre una arquitectura modular basada en
+        servicios REST desacoplados:
+      </p>
+      <ul>
+        <li>Android SDK</li>
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>PostgreSQL</li>
+        <li>REST API</li>
+        <li>Docker</li>
+        <li>Git / GitHub</li>
+      </ul>
+
+      <footer>
+        <p><strong>Enlaces del proyecto:</strong></p>
+        <ul>
+          <li>
+            <a href="https://carburo.app" target="_blank" rel="noopener noreferrer">
+              Visitar sitio web oficial (carburo.app) &rarr;
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/manugbd" target="_blank" rel="noopener noreferrer">
+              Repositorio en GitHub (github.com/manugbd) &rarr;
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </section>
+  </article>
+
+  <!-- Proyecto: Infraestructura Web Segura -->
+  <article aria-labelledby="infra-title">
+    <header>
+        <h2 id="infra-title">Infraestructura Web Segura y Automatizada</h2>
+        <p>Proyecto de Máster Universitario en Ingeniería Web</p>
+    </header>
+
+    <section>
+      <p>
+        Desarrollo de un entorno integral de infraestructura como código (IaC)
+        para el despliegue orquestado y seguro de aplicaciones web en entornos
+        virtualizados y cloud. El sistema implementa aprovisionamiento
+        automatizado, configuración de redes aisladas, cortafuegos perimetrales,
+        contenedores y gestión de certificados criptográficos HTTPS.
+      </p>
+
+      <h3>Stack Tecnológico</h3>
+      <ul>
+        <li>OpenStack</li>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>Linux (Debian/Ubuntu)</li>
+        <li>Docker &amp; Compose</li>
+        <li>Seguridad &amp; HTTPS</li>
+      </ul>
+    </section>
+  </article>
+
+  <!-- Proyecto: Sitio Web Personal ECW -->
+  <article aria-labelledby="ecw-title">
+    <header>
+        <h2 id="ecw-title">Sitio Web Personal y Académico (ECW)</h2>
+        <p>Estándares y Computación Web</p>
+    </header>
+
+    <section>
+      <p>
+        El presente sitio web, concebido bajo los más rigurosos principios de la
+        asignatura <em>Estándares y Computación Web</em>. Desarrollado mediante
+        el generador estático Eleventy y plantillas Nunjucks, garantiza una
+        separación estricta de responsabilidades, HTML5 semántico puro sin
+        utilización de elementos div genéricos, CSS externo con gestión de
+        cascada y total validación según las pautas del consorcio W3C.
+      </p>
+
+      <h3>Tecnologías y Estándares</h3>
+      <ul>
+        <li>HTML5 Semántico</li>
+        <li>CSS3 / Cascada</li>
+        <li>Eleventy (11ty)</li>
+        <li>Nunjucks</li>
+        <li>Accesibilidad WCAG</li>
+        <li>Validación W3C</li>
+      </ul>
+    </section>
+  </article>
+</section>
