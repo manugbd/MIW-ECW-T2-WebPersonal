@@ -1,6 +1,8 @@
 LEEME.TXT - SITIO WEB PERSONAL DE MANUEL GARCIA BALDO
 ====================================================
 
+NOTA: El sitio web se entrega con su versión definitiva en la carpeta /public. Se puede acceder a ella desde public/index.html, sin necesidad de despliegue.
+
 1. DESCRIPCION
 --------------
 Sitio web personal y academico de Manuel Garcia Baldo, desarrollado para la
@@ -26,8 +28,7 @@ elementos HTML5 de audio y video.
 - Eleventy (11ty): generador de sitios estaticos que convierte las plantillas
   en paginas HTML listas para publicar.
 - Nunjucks: motor de plantillas utilizado por Eleventy para reutilizar la
-  estructura comun del sitio, incluyendo la cabecera, navegacion, migas de
-  pan y pie de pagina.
+  estructura comun del sitio, incluyendo la cabecera, navegacion o pie de pagina.
 
 Eleventy es la unica dependencia de desarrollo directa del proyecto. No se
 utilizan frameworks de interfaz ni bibliotecas JavaScript adicionales. Esta
@@ -105,7 +106,7 @@ El sitio incorpora medidas de accesibilidad como:
 - Navegacion semantica y etiquetas aria-label cuando son necesarias para
   diferenciar zonas de navegacion.
 - Indicacion de la pagina actual mediante aria-current.
-- Migas de pan para facilitar la orientacion dentro del sitio.
+- Migas para facilitar la orientacion dentro del sitio.
 - Texto alternativo para las imagenes.
 - Elementos nativos de HTML5 para la reproduccion de audio y video.
 - Controles de foco visibles para facilitar la navegacion mediante teclado.
