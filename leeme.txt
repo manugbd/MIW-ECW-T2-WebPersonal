@@ -1,7 +1,6 @@
 LEEME.TXT - SITIO WEB PERSONAL DE MANUEL GARCIA BALDO
 ====================================================
 
-NOTA: El sitio web se entrega con su versión definitiva en la carpeta /public. Se puede acceder a ella desde public/index.html, sin necesidad de despliegue.
 
 1. DESCRIPCION
 --------------
