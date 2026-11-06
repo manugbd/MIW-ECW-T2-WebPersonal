@@ -24,13 +24,13 @@ breadcrumb: Inicio
           rel="noopener noreferrer">github.com/manugbd</a></li>
     </ul>
     <p>
-      <a href="/perfil/">Ver mi perfil y CV</a>
-      <a href="/proyectos/">Explorar proyectos</a>
+      <a href="{{ '/perfil/' | url }}">Ver mi perfil y CV</a>
+      <a href="{{ '/proyectos/' | url }}">Explorar proyectos</a>
     </p>
   </header>
 
   <figure>
-    <img src="/img/foto-personal-perfil.jpeg" alt="Fotografía de Manuel García Baldó" width="320" height="320">
+    <img src="{{ '/img/foto-personal-perfil.jpeg' | url }}" alt="Fotografía de Manuel García Baldó" width="320" height="320">
     <figcaption>Manuel García Baldó — Gijón, Asturias</figcaption>
   </figure>
 </section>
@@ -45,34 +45,34 @@ breadcrumb: Inicio
   <ul>
     <li>
       <article>
-        <h3><a href="/perfil/">Mi perfil y CV</a></h3>
+        <h3><a href="{{ '/perfil/' | url }}">Mi perfil y CV</a></h3>
         <p>Trayectoria académica, experiencia profesional y currículum vitae completo .</p>
-        <p><a href="/perfil/">Acceder al perfil &rarr;</a></p>
+        <p><a href="{{ '/perfil/' | url }}">Acceder al perfil &rarr;</a></p>
       </article>
     </li>
 
     <li>
       <article>
-        <h3><a href="/proyectos/">Proyectos y Portfolio</a></h3>
+        <h3><a href="{{ '/proyectos/' | url }}">Proyectos y Portfolio</a></h3>
         <p>Información detallada sobre proyectos personales y profesionales, como <strong>Carburo</strong> (mi Trabajo de
           Fin de Grado).</p>
-        <p><a href="/proyectos/">Ver proyectos &rarr;</a></p>
+        <p><a href="{{ '/proyectos/' | url }}">Ver proyectos &rarr;</a></p>
       </article>
     </li>
 
     <li>
       <article>
-        <h3><a href="/intereses-profesionales/">Intereses técnológicos</a></h3>
+        <h3><a href="{{ '/intereses-profesionales/' | url }}">Intereses técnológicos</a></h3>
         <p>Áreas de curiosidad técnica en desarrollo de software, sistemas y redes.</p>
-        <p><a href="/intereses/">Intereses tecnológicos &rarr;</a></p>
+        <p><a href="{{ '/intereses-profesionales/' | url }}">Intereses tecnológicos &rarr;</a></p>
       </article>
     </li>
 
     <li>
       <article>
-        <h3><a href="/intereses/">Intereses y Aficiones</a></h3>
+        <h3><a href="{{ '/ocio/' | url }}">Intereses y Aficiones</a></h3>
         <p>Aficiones personales y ocio.</p>
-        <p><a href="/ocio/">Ocio &rarr;</a></p>
+        <p><a href="{{ '/ocio/' | url }}">Ocio &rarr;</a></p>
       </article>
     </li>
   </ul>

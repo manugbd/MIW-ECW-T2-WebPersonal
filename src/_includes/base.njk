@@ -5,21 +5,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ description }}">
+  <link rel="icon" href="{{ "/favicon.ico" | url }}">
   <title>{{ title }} | Manuel García Baldó - Web personal</title>
-  <link rel="stylesheet" href="/css/colores.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="{{ '/css/colores.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/base.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/header.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/footer.css' | url }}">
   {% if page.url == "/" %}
-  <link rel="stylesheet" href="/css/inicio.css">
+  <link rel="stylesheet" href="{{ '/css/inicio.css' | url }}">
   {% elif page.url == "/perfil/" %}
-  <link rel="stylesheet" href="/css/perfil.css">
+  <link rel="stylesheet" href="{{ '/css/perfil.css' | url }}">
   {% elif page.url == "/proyectos/" %}
-  <link rel="stylesheet" href="/css/proyectos.css">
+  <link rel="stylesheet" href="{{ '/css/proyectos.css' | url }}">
   {% elif page.url == "/intereses-profesionales/" %}
-<link rel="stylesheet" href="/css/intereses.css">
+<link rel="stylesheet" href="{{ '/css/intereses.css' | url }}">
 {% elif page.url == "/ocio/" %}
-<link rel="stylesheet" href="/css/intereses.css">
+<link rel="stylesheet" href="{{ '/css/intereses.css' | url }}">
 {% endif %}
 </head>
 
@@ -28,7 +29,7 @@
 
   <header>
     <nav aria-label="Identidad del sitio">
-      <a href="/">
+      <a href="{{ '/' | url }}">
         <span>Manuel García Baldó</span>
         <span>Web personal</span>
       </a>
@@ -36,11 +37,11 @@
 
     <nav aria-label="Navegación principal">
       <ul>
-        <li><a href="/" {% if page.url=="/" %}aria-current="page" {% endif %}>Inicio</a></li>
-        <li><a href="/perfil/" {% if page.url=="/perfil/" %}aria-current="page" {% endif %}>Mi perfil</a></li>
-        <li><a href="/proyectos/" {% if page.url=="/proyectos/" %}aria-current="page" {% endif %}>Proyectos</a></li>
-        <li><a href="/intereses-profesionales/" {% if page.url=="/intereses-profesionales/" %}aria-current="page" {% endif %}>Intereses tecnológicos</a></li>
-        <li><a href="/ocio/" {% if page.url=="/ocio/" %}aria-current="page" {% endif %}>Ocio</a></li>
+        <li><a href="{{ '/' | url }}" {% if page.url=="/" %}aria-current="page" {% endif %}>Inicio</a></li>
+        <li><a href="{{ '/perfil/' | url }}" {% if page.url=="/perfil/" %}aria-current="page" {% endif %}>Mi perfil</a></li>
+        <li><a href="{{ '/proyectos/' | url }}" {% if page.url=="/proyectos/" %}aria-current="page" {% endif %}>Proyectos</a></li>
+        <li><a href="{{ '/intereses-profesionales/' | url }}" {% if page.url=="/intereses-profesionales/" %}aria-current="page" {% endif %}>Intereses tecnológicos</a></li>
+        <li><a href="{{ '/ocio/' | url }}" {% if page.url=="/ocio/" %}aria-current="page" {% endif %}>Ocio</a></li>
       </ul>
     </nav>
   </header>
@@ -52,7 +53,7 @@
           {% if page.url == "/" %}
           <span aria-current="page">Inicio</span>
           {% else %}
-          <a href="/">Inicio</a>
+          <a href="{{ '/' | url }}">Inicio</a>
           {% endif %}
         </li>
         {% if breadcrumb and page.url != "/" %}
@@ -89,18 +90,18 @@
     <nav aria-labelledby="titulo-mapa">
       <h2 id="titulo-mapa">Mapa del sitio</h2>
       <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/perfil/">Mi perfil y CV</a></li>
-        <li><a href="/proyectos/">Proyectos</a></li>
-        <li><a href="/intereses-profesionales/">Intereses</a></li>
-        <li><a href="/ocio/">Ocio</a></li>
+        <li><a href="{{ '/' | url }}">Inicio</a></li>
+        <li><a href="{{ '/perfil/' | url }}">Mi perfil y CV</a></li>
+        <li><a href="{{ '/proyectos/' | url }}">Proyectos</a></li>
+        <li><a href="{{ '/intereses-profesionales/' | url }}">Intereses</a></li>
+        <li><a href="{{ '/ocio/' | url }}">Ocio</a></li>
       </ul>
     </nav>
 
     <p>&copy; <time datetime="2026">2026</time> Manuel García Baldó. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="/js/main.js" defer></script>
+  <script src="{{ '/js/main.js' | url }}" defer></script>
 </body>
 
 </html>
