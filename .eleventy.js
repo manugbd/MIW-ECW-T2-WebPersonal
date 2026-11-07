@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/img/favicon.ico": "favicon.ico" });
 
     return {
+        pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/",
         dir: {
             input: "src",
             output: "public",
@@ -20,3 +21,4 @@ module.exports = function (eleventyConfig) {
         markdownTemplateEngine: "njk"
     };
 };
+
