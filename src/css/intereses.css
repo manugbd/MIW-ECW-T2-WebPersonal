@@ -75,6 +75,11 @@ main>section>article figure audio {
   max-width: 600px;
 }
 
+main>section>article figure audio[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 main>section>article figure figcaption {
   font-size: var(--font-size-xs);
   color: var(--color-text-subtle);
