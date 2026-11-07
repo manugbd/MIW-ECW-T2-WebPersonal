@@ -6,7 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ description }}">
   <link rel="icon" href="{{ "/favicon.ico" | url }}">
-  <title>{{ title }} | Manuel García Baldó - Web personal</title>
+  <meta name="author" content="{{ site.name }}">
+  <title>{{ seoTitle or (title ~ ' | ' ~ site.name) }}</title>
+  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+  {% if site.url and not noindex %}
+  <link rel="canonical" href="{{ page.url | absoluteUrl }}">
+  <meta property="og:type" content="{% if page.url == '/perfil/' %}profile{% else %}website{% endif %}">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="{{ site.name }} · Web personal">
+  <meta property="og:title" content="{{ seoTitle or (title ~ ' | ' ~ site.name) }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ page.url | absoluteUrl }}">
+  <meta property="og:image" content="{{ site.image | absoluteUrl }}">
+  <meta property="og:image:alt" content="{{ site.imageAlt }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ seoTitle or (title ~ ' | ' ~ site.name) }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ site.image | absoluteUrl }}">
+  <meta name="twitter:image:alt" content="{{ site.imageAlt }}">
+  <meta name="google-site-verification" content="DttKDazyyCJv4j2IU443DcO6_MISbrQix5wjIcHTh7M" />
+  <script type="application/ld+json">{{ {page: page, title: title, seoTitle: seoTitle, description: description, breadcrumb: breadcrumb} | structuredData | jsonLd | safe }}</script>
+  {% endif %}
   <link rel="stylesheet" href="{{ '/css/colores.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/base.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/header.css' | url }}">
