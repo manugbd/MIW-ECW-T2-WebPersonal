@@ -45,13 +45,14 @@ breadcrumb: Ocio
       programación. Escucho diferentes estilos, aunque algunas canciones tienen un significado especial y forman parte
       de mis preferencias personales.</p>
     <figure>
-      <audio controls preload="metadata">
-        <source src="{{ '/audio/nino-bravo-un-beso-y-una-flor.mp3' | url }}" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio HTML5. Puedes <a
-          href="{{ '/audio/nino-bravo-un-beso-y-una-flor.mp3' | url }}" download>descargar el archivo de audio
-          directamente</a>.
+      <audio controls preload="none" aria-disabled="true" aria-label="Reproductor de música deshabilitado" aria-describedby="aviso-audio" tabindex="-1" inert>
+        Tu navegador no soporta el elemento de audio HTML5.
       </audio>
-      <figcaption>Un beso y una flor, de Nino Bravo, una de mis canciones favoritas.</figcaption>
+      <figcaption>
+        <cite>Un beso y una flor</cite>, de Nino Bravo, una de mis canciones favoritas.
+        <br>
+        <small id="aviso-audio">Audio deshabilitado por derechos de autor.</small>
+      </figcaption>
     </figure>
   </article>
 
