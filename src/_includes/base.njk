@@ -55,7 +55,13 @@
       </a>
     </nav>
 
-    <nav aria-label="Navegación principal">
+    <button type="button" hidden aria-expanded="false" aria-controls="navegacion-principal" aria-describedby="ayuda-menu">
+      <span aria-hidden="true">☰</span>
+      <span>Menú</span>
+    </button>
+    <span id="ayuda-menu" role="tooltip" hidden>Mostrar u ocultar la navegación principal. Escape cierra el menú.</span>
+
+    <nav id="navegacion-principal" aria-label="Navegación principal">
       <ul>
         <li><a href="{{ '/' | url }}" {% if page.url=="/" %}aria-current="page" {% endif %}>Inicio</a></li>
         <li><a href="{{ '/perfil/' | url }}" {% if page.url=="/perfil/" %}aria-current="page" {% endif %}>Mi perfil</a></li>
@@ -118,7 +124,10 @@
       </ul>
     </nav>
 
-    <p>&copy; <time datetime="2026">2026</time> Manuel García Baldó. Todos los derechos reservados.</p>
+    <p>
+      <span>&copy; <time data-copyright datetime="2026">2026</time> Manuel García Baldó. Todos los derechos reservados.</span>
+      <span>Última actualización: <time datetime="{{ site.updated }}">{{ site.updatedLabel }}</time>.</span>
+    </p>
   </footer>
 
   <script src="{{ '/js/main.js' | url }}" defer></script>

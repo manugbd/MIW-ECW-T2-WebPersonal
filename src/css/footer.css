@@ -2,6 +2,8 @@
 
 /* Pie de página */
 body > footer {
+  container-type: inline-size;
+  width: 100%;
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
   padding: var(--space-2xl) var(--space-xl) var(--space-lg) var(--space-xl);
@@ -78,6 +80,31 @@ footer > p:last-of-type {
   }
 
   footer > p:last-of-type {
+    text-align: center;
+  }
+}
+
+/* Copyright y revisión comparten línea; en espacios estrechos se apilan. */
+body > footer > p:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-sm);
+  text-align: left;
+}
+
+body > footer > p:last-of-type > span:last-child {
+  text-align: right;
+}
+
+@container (max-width: 48rem) {
+  body > footer > p:last-of-type {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  body > footer > p:last-of-type > span:last-child {
     text-align: center;
   }
 }
