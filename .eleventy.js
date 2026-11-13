@@ -1,9 +1,20 @@
 module.exports = function (eleventyConfig) {
   const site = require("./src/_data/site.js");
+  const i18n = require("./src/_data/i18n.js");
+
+  eleventyConfig.addFilter("localizedUrl", (url, lang = "es") => {
+    const [pathname, hash] = String(url).split("#");
+    const route = Object.values(i18n.routes).find((routes) =>
+      Object.values(routes).includes(pathname),
+    );
+    return (route ? route[lang] : pathname) + (hash ? "#" + hash : "");
+  });
+
   const absoluteUrl = (path) =>
     site.url
       ? new URL(String(path).replace(/^\//, ""), `${site.url}/`).href
       : "";
+
   eleventyConfig.addFilter("absoluteUrl", absoluteUrl);
   eleventyConfig.addFilter("jsonLd", (value) =>
     JSON.stringify(value).replace(/</g, "\\u003c"),
@@ -14,7 +25,11 @@ module.exports = function (eleventyConfig) {
       .filter((item) => item.data.layout === "base.njk" && !item.data.noindex)
       .sort((a, b) => a.url.localeCompare(b.url)),
   );
+
   eleventyConfig.addFilter("structuredData", (data) => {
+    const language = data.lang || "es";
+    const homeUrl = absoluteUrl(i18n.routes.home[language]);
+    const isProfile = data.translationKey === "profile";
     const personId = `${absoluteUrl("/")}#person`;
     const websiteId = `${absoluteUrl("/")}#website`;
     const pageUrl = absoluteUrl(data.page.url);
@@ -31,33 +46,33 @@ module.exports = function (eleventyConfig) {
         "@type": "WebSite",
         "@id": websiteId,
         url: absoluteUrl("/"),
-        name: `${site.name} · Web personal`,
-        inLanguage: "es",
+        name: `${site.name} — ${i18n.strings[language].personalSite}`,
+        inLanguage: language,
         author: { "@id": personId },
       },
       {
-        "@type": data.page.url === "/perfil/" ? "ProfilePage" : "WebPage",
+        "@type": isProfile ? "ProfilePage" : "WebPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: data.seoTitle || data.title,
         description: data.description,
-        inLanguage: "es",
+        dateModified: site.updated,
+        inLanguage: language,
         isPartOf: { "@id": websiteId },
         about: { "@id": personId },
-        ...(data.page.url === "/perfil/"
-          ? { mainEntity: { "@id": personId } }
-          : {}),
+        ...(isProfile ? { mainEntity: { "@id": personId } } : {}),
       },
     ];
-    if (data.page.url !== "/") {
+
+    if (data.translationKey !== "home") {
       graph.push({
         "@type": "BreadcrumbList",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: "Inicio",
-            item: absoluteUrl("/"),
+            name: i18n.strings[language].home,
+            item: homeUrl,
           },
           {
             "@type": "ListItem",
@@ -70,6 +85,7 @@ module.exports = function (eleventyConfig) {
     }
     return { "@context": "https://schema.org", "@graph": graph };
   });
+  
   // Copia directa de carpetas de recursos estáticos a la carpeta de salida
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });

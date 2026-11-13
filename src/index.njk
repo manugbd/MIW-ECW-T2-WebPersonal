@@ -1,11 +1,12 @@
 ---
+translationKey: home
 layout: base.njk
 title: Inicio
 seoTitle: Manuel García Baldó | Ingeniería de software y desarrollo web
 description: Página web personal y académica de Manuel García Baldó. Graduado en Ingeniería Informática del Software y estudiante del Máster en Ingeniería Web en la Universidad de Oviedo.
 breadcrumb: Inicio
 ---
-{% from "contacto.njk" import email, social %}
+{% from "contacto.njk" import email, social with context %}
 <section aria-labelledby="hero-title">
   <header>
     <h1 id="hero-title">Manuel García Baldó</h1>
@@ -21,12 +22,12 @@ breadcrumb: Inicio
       <li><strong>Año de nacimiento:</strong> 2004</li>
       <li><strong>Correo de contacto:</strong> {{ email('garciabaldo04@gmail.com', 'inicio-1') }}</li>
       <li><strong>Correo de contacto (universidad):</strong> {{ email('uo295497@uniovi.es', 'inicio-2') }}</li>
-      <li>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'inicio-github', 'Abrir github.com/manugbd') }}
+      <li>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'inicio-github', t.openGithub) }}
       </li>
     </ul>
     <p>
-      <a href="{{ '/perfil/' | url }}">Ver mi perfil y CV</a>
-      <a href="{{ '/proyectos/' | url }}">Explorar proyectos</a>
+      <a href="{{ '/perfil/' | localizedUrl(lang) | url }}">Ver mi perfil y CV</a>
+      <a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">Explorar proyectos</a>
     </p>
   </header>
 
@@ -52,7 +53,7 @@ breadcrumb: Inicio
       <article>
         <h3>Perfil y CV</h3>
         <p>Trayectoria académica, experiencia profesional y currículum vitae completo .</p>
-        <p><a href="{{ '/perfil/' | url }}">Acceder al perfil &rarr;</a></p>
+        <p><a href="{{ '/perfil/' | localizedUrl(lang) | url }}">Acceder al perfil &rarr;</a></p>
       </article>
     </li>
 
@@ -62,7 +63,7 @@ breadcrumb: Inicio
         <p>Información detallada sobre proyectos personales y profesionales, como <strong>Carburo</strong> (mi Trabajo
           de
           Fin de Grado).</p>
-        <p><a href="{{ '/proyectos/' | url }}">Ver proyectos &rarr;</a></p>
+        <p><a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">Ver proyectos &rarr;</a></p>
       </article>
     </li>
 
@@ -70,7 +71,7 @@ breadcrumb: Inicio
       <article>
         <h3>Intereses tecnológicos</h3>
         <p>Áreas de curiosidad técnica en desarrollo de software, sistemas y redes.</p>
-        <p><a href="{{ '/intereses-profesionales/' | url }}">Intereses tecnológicos &rarr;</a></p>
+        <p><a href="{{ '/intereses-profesionales/' | localizedUrl(lang) | url }}">Intereses tecnológicos &rarr;</a></p>
       </article>
     </li>
 
@@ -78,7 +79,7 @@ breadcrumb: Inicio
       <article>
         <h3>Ocio</h3>
         <p>Aficiones personales y ocio.</p>
-        <p><a href="{{ '/ocio/' | url }}">Ocio &rarr;</a></p>
+        <p><a href="{{ '/ocio/' | localizedUrl(lang) | url }}">Ocio &rarr;</a></p>
       </article>
     </li>
   </ul>

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve --port=80",
-    "build": "eleventy"
+    "build": "eleventy",
+    "check": "node scripts/check-site.cjs",
+    "check:interactions": "node scripts/check-interactions.cjs"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,125 @@
+---
+layout: "base.njk"
+lang: "en"
+translationKey: "projects"
+title: "Projects"
+description: "Projects by Manuel García Baldó: Carburo for Android with Java and Spring Boot, and web infrastructure using Docker, Terraform and Ansible."
+breadcrumb: "Projects"
+permalink: "/en/projects/"
+---
+
+<section aria-label="Featured projects">
+  <header>
+    <h1>Projects</h1>
+    <p>
+      A selection of software development and infrastructure deployment projects.
+    </p>
+  </header>
+  <!-- Proyecto Destacado: Carburo -->
+  <article aria-labelledby="carburo-title">
+    <header>
+        <h2 id="carburo-title">Carburo — Smart fuel management</h2>
+        <p>Final-year undergraduate project &amp; mobile and web ecosystem</p>
+    </header>
+
+    <section>
+      <p>
+        <strong>Carburo</strong> is a comprehensive platform designed to help users optimise their fuel spending, with real-time information on filling stations and price changes, as well as detailed consumption and refuelling records.
+      </p>
+
+      <section aria-label="Components of the Carburo ecosystem">
+        <article>
+          <h3>Native mobile application (main final-year project)</h3>
+          <p>
+            The core of my final-year Software Engineering project. Developed natively for Android, it includes geolocation, fuel-type filtering, visual price comparisons and fuel-efficiency analysis for registered vehicles.
+          </p>
+        </article>
+
+        <article>
+          <h3>Web platform and complementary services</h3>
+          <p>
+            Complementary development that extends the ecosystem to the web, allowing users to view statistical summaries and interactive filling-station maps, and to manage profiles from any browser.
+          </p>
+        </article>
+      </section>
+
+      <h3>Architecture and technologies</h3>
+      <p>
+        The ecosystem uses a modular architecture based on decoupled REST services:
+      </p>
+      <ul>
+        <li>Android SDK</li>
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>PostgreSQL</li>
+        <li>REST API</li>
+        <li>Docker</li>
+        <li>Git / GitHub</li>
+      </ul>
+
+      <footer>
+        <p><strong>Project links:</strong></p>
+        <ul>
+          <li>
+            <a href="https://carburo.app" target="_blank" rel="noopener noreferrer">
+              Visit the official website (carburo.app) &rarr;
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/manugbd" target="_blank" rel="noopener noreferrer">
+              My GitHub profile (github.com/manugbd) &rarr;
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </section>
+  </article>
+
+  <!-- Proyecto: Infraestructura Web Segura -->
+  <article aria-labelledby="infra-title">
+    <header>
+        <h2 id="infra-title">Secure and automated web infrastructure</h2>
+        <p>Master's Degree in Web Engineering project</p>
+    </header>
+
+    <section>
+      <p>
+        Development of a complete infrastructure-as-code (IaC) environment for the coordinated, secure deployment of web applications in virtualised and cloud environments. The system provides automated provisioning, isolated networks, perimeter firewalls, containers and HTTPS certificate management.
+      </p>
+
+      <h3>Technology stack</h3>
+      <ul>
+        <li>OpenStack</li>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>Linux (Debian/Ubuntu)</li>
+        <li>Docker &amp; Compose</li>
+        <li>Security &amp; HTTPS</li>
+      </ul>
+    </section>
+  </article>
+
+  <!-- Proyecto: Sitio Web Personal ECW -->
+  <article aria-labelledby="ecw-title">
+    <header>
+        <h2 id="ecw-title">Personal and academic website (ECW)</h2>
+        <p>Web Standards and Computing</p>
+    </header>
+
+    <section>
+      <p>
+        This website was developed following the principles of the <em>Web Standards and Computing</em>course. Built with Eleventy and Nunjucks, it separates responsibilities using semantic HTML5, external CSS and the cascade, with W3C validation as a development goal.
+      </p>
+
+      <h3>Technologies and standards</h3>
+      <ul>
+        <li>Semantic HTML5</li>
+        <li>CSS3 / Cascade</li>
+        <li>Eleventy (11ty)</li>
+        <li>Nunjucks</li>
+        <li>WCAG accessibility</li>
+        <li>W3C validation</li>
+      </ul>
+    </section>
+  </article>
+</section>

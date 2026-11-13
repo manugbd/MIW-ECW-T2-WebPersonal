@@ -17,6 +17,22 @@
       copyrightTime.dateTime = year;
     }
 
+    const languagePicker = document.querySelector('details[data-language]');
+    if (languagePicker) {
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && languagePicker.open) {
+          languagePicker.open = false;
+          languagePicker.querySelector('summary').focus();
+        }
+      });
+      document.addEventListener('click', event => {
+        if (!languagePicker.contains(event.target)) languagePicker.open = false;
+      });
+      languagePicker.addEventListener('focusout', event => {
+        if (!languagePicker.contains(event.relatedTarget)) languagePicker.open = false;
+      });
+    }
+
     const tooltipDelay = 700; // Retardo de apertura de las ayudas, en milisegundos.
 
     // Menú desplegable: sin JavaScript los enlaces permanecen visibles.
@@ -39,7 +55,7 @@
           tooltip.hidden = false;
         }, tooltipDelay);
       };
-      const mobile = window.matchMedia("(max-width: 900px)");
+      const mobile = window.matchMedia("(max-width: 70rem)");
       const setOpen = (open) => {
         menuButton.setAttribute("aria-expanded", String(open));
         menu.hidden = mobile.matches && !open;
@@ -101,14 +117,14 @@
       button.hidden = false;
       button.addEventListener("click", async () => {
         button.disabled = true;
-        copyStatus.textContent = "Copiando " + button.dataset.copyEmail + "…";
+        copyStatus.textContent = copyStatus.dataset.copying + " " + button.dataset.copyEmail + ".";
         try {
           await navigator.clipboard.writeText(button.dataset.copyEmail);
           copyStatus.textContent =
-            "Correo copiado: " + button.dataset.copyEmail;
+            copyStatus.dataset.copied + " " + button.dataset.copyEmail;
         } catch {
           copyStatus.textContent =
-            "No se pudo copiar. Selecciona la dirección y cópiala manualmente.";
+            copyStatus.dataset.copyError;
         } finally {
           button.disabled = false;
         }

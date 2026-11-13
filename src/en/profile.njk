@@ -1,0 +1,215 @@
+---
+layout: "base.njk"
+lang: "en"
+translationKey: "profile"
+title: "Profile and CV"
+description: "Profile and CV of Manuel García Baldó, software engineer based in Gijón. Education at the University of Oviedo and software development experience at ASAC."
+breadcrumb: "Profile and CV"
+permalink: "/en/profile/"
+---
+{% from "contacto.njk" import email, social with context %}
+<header>
+  <h1>Profile and CV</h1>
+  <p>Education, professional background and technical skills in software and web engineering.</p>
+</header>
+
+<section aria-labelledby="sobre-mi-heading">
+  <figure>
+    <span data-help>
+      <img src="{{ '/img/foto-personal-perfil.jpeg' | url }}" alt="Portrait of Manuel García Baldó" width="280"
+        height="280" tabindex="0">
+      <span role="tooltip" id="ayuda-imagen-2" hidden>Portrait of Manuel García Baldó</span>
+    </span>
+    <figcaption>Manuel García Baldó — Software Engineer</figcaption>
+  </figure>
+
+  <header>
+    <h2 id="sobre-mi-heading">About me</h2>
+    <p>
+      I hold a degree in <strong>Software Engineering</strong> from the University of Oviedo and I am studying for the
+      <strong>Master's Degree in Web Engineering</strong> at the same institution. I am proactive and committed to the software I create and the systems I work on.
+    </p>
+
+    <dl>
+      <dt>Name:</dt>
+      <dd>Manuel García Baldó</dd>
+      <dt>Location:</dt>
+      <dd>Gijón, Asturias, Spain</dd>
+      <dt>Year of birth:</dt>
+      <dd>2004</dd>
+      <dt>University email:</dt>
+      <dd>{{ email('uo295497@uniovi.es', 'perfil-1') }}</dd>
+      <dt>Personal email:</dt>
+      <dd>{{ email('garciabaldo04@gmail.com', 'perfil-2') }}</dd>
+      <dt>GitHub:</dt>
+      <dd>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'perfil-github', t.openGithub, false) }}</dd>
+      <dt>LinkedIn:</dt>
+      <dd>{{ social('https://www.linkedin.com/', 'Manuel García Baldó', 'linkedin', 'perfil-linkedin', t.openLinkedin, false) }}</dd>
+    </dl>
+  </header>
+</section>
+
+<section aria-labelledby="formacion-heading">
+  <header>
+    <h2 id="formacion-heading">Education</h2>
+  </header>
+
+  <ul>
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/logo-eii.png' | url }}"
+                alt="Logo of the School of Computer Engineering at the University of Oviedo" loading="lazy"
+                decoding="async" width="180" height="48" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-3" hidden>Logo of the School of Computer Engineering at the University of Oviedo</span>
+            </span>
+          </figure>
+          <h3>Master's Degree in Web Engineering</h3>
+          <p><strong>University of Oviedo</strong> · Class of 2026/2027</p>
+        </header>
+        <p>Currently studying.</p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/logo-eii.png' | url }}"
+                alt="Logo of the School of Computer Engineering at the University of Oviedo" loading="lazy"
+                decoding="async" width="180" height="48" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-4" hidden>Logo of the School of Computer Engineering at the University of Oviedo</span>
+            </span>
+          </figure>
+          <h3>Bachelor's Degree in Software Engineering</h3>
+          <p><strong>University of Oviedo — School of Computer Engineering (EII)</strong> · Class of 2022–2026</p>
+        </header>
+        <p>Comprehensive training in Software Engineering. Final-year project: the Carburo Android application. Grade: 10/10, with a recommendation for honours.</p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/logo-salle.png' | url }}" alt="Logo of San Eutiquio La Salle" loading="lazy"
+                decoding="async" width="180" height="48" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-5" hidden>Logo of San Eutiquio La Salle</span>
+            </span>
+          </figure>
+          <h3>Upper Secondary Education, Technology stream</h3>
+          <p><strong>C.E.S. San Eutiquio La Salle</strong> · Class of 2020–2022</p>
+        </header>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<section aria-labelledby="experiencia-heading">
+  <header>
+    <h2 id="experiencia-heading">Professional experience</h2>
+  </header>
+
+  <ul>
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/logo-asac.png' | url }}" alt="Corporate logo of ASAC Comunicaciones" width="160"
+                height="48" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-6" hidden>Corporate logo of ASAC Comunicaciones</span>
+            </span>
+          </figure>
+          <h3>ASAC Comunicaciones</h3>
+          <p><strong>Start:</strong> September 2026 – Present · <strong>Location:</strong> Asturias Technology Park, Llanera</p>
+        </header>
+        <p>Working on the company's internal product. Software development to manage multiple systems and infrastructure environments.</p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/logo-asac.png' | url }}" alt="Corporate logo of ASAC Comunicaciones" width="160"
+                height="48" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-7" hidden>Corporate logo of ASAC Comunicaciones</span>
+            </span>
+          </figure>
+          <h3>ASAC Comunicaciones</h3>
+          <p><strong>Start:</strong> February 2026 · <strong>Location:</strong> Asturias Technology Park, Llanera</p>
+        </header>
+        <p>Company placement in the internal product department. Development of software, systems and corporate technology infrastructure.</p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/escudo-llamas-de-la-ribera.png' | url }}" alt="Coat of arms of Llamas de la Ribera"
+                width="40" height="56" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-8" hidden>Coat of arms of Llamas de la Ribera</span>
+            </span>
+          </figure>
+          <h3>Bar Camping Llamas</h3>
+          <p><strong>Date:</strong> August 2026 · <strong>Location:</strong> Llamas de la Ribera, León</p>
+        </header>
+        <p>Hospitality and customer service.</p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header>
+          <figure>
+            <span data-help>
+              <img src="{{ '/img/escudo-las-omanas.png' | url }}" alt="Coat of arms of the municipality of Las Omañas" width="40"
+                height="56" tabindex="0">
+              <span role="tooltip" id="ayuda-imagen-9" hidden>Coat of arms of the municipality of Las Omañas</span>
+            </span>
+          </figure>
+          <h3>Mesón Las Médulas</h3>
+          <p><strong>Date:</strong> August 2023 · <strong>Location:</strong> Las Omañas, León</p>
+        </header>
+        <p>Hospitality and customer service.</p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header>
+          <h3>Low-voltage electrical installations</h3>
+          <p><strong>Technical area:</strong> Assembly, maintenance and diagnosis of electrical systems</p>
+        </header>
+        <p>Extensive practical experience in installing and maintaining low-voltage electrical networks and installations.</p>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<section aria-labelledby="cv-heading">
+  <header>
+    <h2 id="cv-heading">Curriculum vitae (web version)</h2>
+    <p>This section summarises my CV in semantic HTML. You can also download the original PDF in Spanish (August 2026 version).</p>
+    <p>
+      <span data-help><a href="{{ '/docs/cv.pdf' | url }}" download aria-describedby="ayuda-descargar-cv">Download Manuel García Baldó's CV (PDF in Spanish, 85 kB)</a>
+        <span role="tooltip" id="ayuda-descargar-cv" hidden>Download the CV as a PDF in Spanish</span></span>
+    </p>
+  </header>
+
+  <article>
+    <h3>Manuel García Baldó</h3>
+    <p>Software Engineering graduate · Master's student in Web Engineering</p>
+    <p>
+      Gijón, Asturias &bull; Email: {{ email('garciabaldo04@gmail.com', 'perfil-3') }} &bull; GitHub: <a href="https://github.com/manugbd" target="_blank" rel="noopener noreferrer">github.com/manugbd</a>
+    </p>
+  </article>
+</section>

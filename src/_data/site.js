@@ -5,7 +5,7 @@ const parsed = configured ? new URL(configured) : null;
 if (parsed && !["https:", "http:"].includes(parsed.protocol)) {
   throw new Error("SITE_URL debe ser una URL HTTP o HTTPS.");
 }
-const updated = "2026-11-12"; // Edita únicamente esta fecha: AAAA-MM-DD.
+const updated = "2026-11-13"; // Edita únicamente esta fecha: AAAA-MM-DD.
 
 module.exports = {
   name: "Manuel García Baldó",

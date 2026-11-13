@@ -116,7 +116,7 @@ body > header > [role="tooltip"] {
   font-size: var(--font-size-sm);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 70rem) {
   body > header {
     flex-wrap: wrap;
     gap: var(--space-sm);
@@ -160,4 +160,88 @@ body > header > [role="tooltip"] {
 body > header > nav:last-of-type a[aria-current="page"] {
   text-decoration: underline;
   text-underline-offset: 0.3em;
+}
+
+/* Selector de idioma nativo: accesible sin JavaScript y sin banderas. */
+body > header {
+  gap: var(--space-sm);
+}
+
+body > header > details {
+  position: relative;
+  flex-shrink: 0;
+}
+
+body > header > details > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+body > header > details > summary::after {
+  content: "▾";
+}
+
+body > header > details > summary img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+body > header > details > summary:hover {
+  background-color: var(--color-primary-light);
+}
+
+body > header > details > ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 10rem;
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+body > header > details a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+body > header > details a:hover,
+body > header > details a[aria-current] {
+  background: var(--color-primary-light);
+  font-weight: 700;
+}
+
+@media (max-width: 70rem) {
+  body > header > nav:first-of-type { order: 0; }
+  body > header > details { order: 1; }
+  body > header > button { order: 2; }
+  body > header > nav:last-of-type { order: 3; }
+  body > header > details > summary { font-size: var(--font-size-sm); }
+}
+
+@media (max-width: 30rem) {
+  body > header > nav:first-of-type { flex-basis: 100%; }
+  body > header > details { margin-left: auto; }
+}
+
+@media (min-width: 70.001rem) {
+  body > header > nav:first-of-type {
+    flex: 1;
+  }
 }

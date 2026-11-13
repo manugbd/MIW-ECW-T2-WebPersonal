@@ -1,0 +1,83 @@
+---
+layout: "base.njk"
+lang: "fr"
+translationKey: "home"
+title: "Accueil"
+description: "Site personnel et universitaire de Manuel García Baldó, diplômé en ingénierie informatique du logiciel et étudiant en master d’ingénierie web à l’Université d’Oviedo."
+breadcrumb: "Accueil"
+permalink: "/fr/"
+seoTitle: "Manuel García Baldó | Génie logiciel et développement web"
+---
+{% from "contacto.njk" import email, social with context %}
+<section aria-labelledby="hero-title">
+  <header>
+    <h1 id="hero-title">Manuel García Baldó</h1>
+    <p>Diplômé en ingénierie informatique du logiciel · Étudiant en master d’ingénierie web</p>
+    <p>
+      Bienvenue sur mon site personnel, universitaire et professionnel. J’ai étudié l’ingénierie informatique du logiciel à l’<strong>Université d’Oviedo</strong> (promotion 2022–2026) et je poursuis ma spécialisation dans le cadre du <strong>Master universitaire en ingénierie web</strong> (année universitaire 2026/2027).
+    </p>
+    <ul>
+      <li><strong>Localisation :</strong> Gijón, Asturies, Espagne</li>
+      <li><strong>Année de naissance :</strong> 2004</li>
+      <li><strong>Courriel de contact :</strong> {{ email('garciabaldo04@gmail.com', 'inicio-1') }}</li>
+      <li><strong>Courriel universitaire :</strong> {{ email('uo295497@uniovi.es', 'inicio-2') }}</li>
+      <li>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'inicio-github', t.openGithub) }}
+      </li>
+    </ul>
+    <p>
+      <a href="{{ '/perfil/' | localizedUrl(lang) | url }}">Consulter mon profil et mon CV</a>
+      <a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">Découvrir les projets</a>
+    </p>
+  </header>
+
+  <figure>
+    <span data-help>
+      <img src="{{ '/img/foto-personal-perfil.jpeg' | url }}" alt="Photographie de Manuel García Baldó" width="320"
+        height="320" fetchpriority="high" tabindex="0">
+      <span role="tooltip" id="ayuda-imagen-1" hidden>Photographie de Manuel García Baldó</span>
+    </span>
+    <figcaption>Manuel García Baldó — Gijón, Asturies</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="secciones-title">
+  <header>
+    <h2 id="secciones-title">Rubriques principales</h2>
+    <p>Explorez les rubriques de ce site pour découvrir mon parcours, mes projets et mes centres d’intérêt.
+    </p>
+  </header>
+
+  <ul>
+    <li>
+      <article>
+        <h3>Profil et CV</h3>
+        <p>Formation, expérience professionnelle et curriculum vitæ complet.</p>
+        <p><a href="{{ '/perfil/' | localizedUrl(lang) | url }}">Consulter le profil &rarr;</a></p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <h3>Projets</h3>
+        <p>Présentation détaillée de projets personnels et professionnels, dont <strong>Carburo</strong> (mon projet de fin d’études).</p>
+        <p><a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">Voir les projets &rarr;</a></p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <h3>Intérêts technologiques</h3>
+        <p>Domaines d’intérêt technique en développement logiciel, systèmes et réseaux.</p>
+        <p><a href="{{ '/intereses-profesionales/' | localizedUrl(lang) | url }}">Intérêts technologiques &rarr;</a></p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <h3>Loisirs</h3>
+        <p>Centres d’intérêt personnels et loisirs.</p>
+        <p><a href="{{ '/ocio/' | localizedUrl(lang) | url }}">Loisirs &rarr;</a></p>
+      </article>
+    </li>
+  </ul>
+</section>

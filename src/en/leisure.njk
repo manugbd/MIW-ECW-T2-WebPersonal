@@ -1,0 +1,99 @@
+---
+layout: "base.njk"
+lang: "en"
+translationKey: "leisure"
+title: "Leisure"
+description: "Video games, music, films and walks around Asturias and León. A personal perspective beyond software development."
+breadcrumb: "Leisure"
+permalink: "/en/leisure/"
+---
+
+<section aria-labelledby="ocio-heading">
+  <header>
+    <h1 id="ocio-heading">Leisure</h1>
+    <p>
+      Hobbies and activities I enjoy in my free time, helping me unwind from academic and professional life.
+    </p>
+  </header>
+  <article aria-labelledby="videojuegos-heading">
+    <header>
+      <h2 id="videojuegos-heading">Video games</h2>
+      <p>Digital leisure</p>
+    </header>
+    <p>
+      Video games are one of my main leisure activities. I particularly enjoy strategy, simulation, role-playing and resource-management games, where decision-making and planning play an important role.
+    </p>
+  </article>
+
+  <article aria-labelledby="podcast-heading">
+    <header>
+      <h2 id="podcast-heading">News and current affairs</h2>
+      <p>Current affairs and entertainment</p>
+    </header>
+    <p>I also like keeping up with the news and the day's main events. Audio content and podcasts are a convenient way to do this while travelling or doing other activities.</p>
+  </article>
+
+  <article aria-labelledby="musica-heading">
+    <header>
+      <h2 id="musica-heading">Music</h2>
+      <p>Focus and relaxation</p>
+    </header>
+    <p>Music is part of both my downtime and my study and programming sessions. I listen to different styles, although some songs have a special meaning and are personal favourites.</p>
+    <figure>
+      <audio controls preload="none" aria-disabled="true" aria-label="Disabled music player" aria-describedby="aviso-audio" tabindex="-1" inert>
+        Your browser does not support HTML5 audio.
+      </audio>
+      <figcaption>
+        <cite lang="es">Un beso y una flor</cite>, by Nino Bravo, one of my favourite songs.
+        <br>
+        <small id="aviso-audio">Audio disabled for copyright reasons.</small>
+      </figcaption>
+    </figure>
+  </article>
+
+  <article aria-labelledby="cine-heading">
+    <header>
+      <h2 id="cine-heading">Films and series</h2>
+      <p>Film and television</p>
+    </header>
+    <p>
+      In film and television, I am especially interested in science fiction and mystery.
+    </p>
+    <p>
+      I particularly enjoy stories that explore dilemmas involving technology, society and the future, as well as those that offer different perspectives.
+    </p>
+  </article>
+
+  <article aria-labelledby="naturaleza-heading">
+    <header>
+      <h2 id="naturaleza-heading">Nature and walks</h2>
+      <p>Outdoor activities</p>
+    </header>
+    <p>
+      I enjoy spending time outdoors and exploring natural landscapes. The Asturian coast and the Bay of Biscay are among my favourite places to unwind.
+    </p>
+    <p>
+      I also have a special connection with several rural areas of León, where I enjoy life away from the city.
+    </p>
+  </article>
+
+  <article aria-labelledby="video-heading">
+    <header>
+      <h2 id="video-heading">Winter in the village</h2>
+      <p>Nature and landscapes</p>
+    </header>
+    <p>
+      Winter brings landscapes to the village that are completely different from the rest of the year. Snow transforms the surroundings into an unusual scene, especially when it covers the paths, fields and mountain areas.
+    </p>
+    <figure>
+      <video controls preload="metadata" width="640" height="360">
+        <source src="{{ '/video/video-presentacion.mp4' | url }}" type="video/mp4">
+        Your browser does not support HTML5 video. You can
+        <a href="{{ '/video/video-presentacion.mp4' | url }}" download>download the video directly</a>.
+      </video>
+      <figcaption>
+        Video of a snowy winter day in the village.
+      </figcaption>
+    </figure>
+  </article>
+</section>

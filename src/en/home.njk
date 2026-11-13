@@ -1,0 +1,83 @@
+---
+layout: "base.njk"
+lang: "en"
+translationKey: "home"
+title: "Home"
+description: "Manuel García Baldó's personal and academic website. Software Engineering graduate and Master's student in Web Engineering at the University of Oviedo."
+breadcrumb: "Home"
+permalink: "/en/"
+seoTitle: "Manuel García Baldó | Software engineering and web development"
+---
+{% from "contacto.njk" import email, social with context %}
+<section aria-labelledby="hero-title">
+  <header>
+    <h1 id="hero-title">Manuel García Baldó</h1>
+    <p>Software Engineering graduate · Master's student in Web Engineering</p>
+    <p>
+      Welcome to my personal, academic and professional website. I studied Software Engineering at the <strong>University of Oviedo</strong> (class of 2022–2026) and I am continuing my specialist training with the <strong>Master's Degree in Web Engineering</strong> (2026/2027 academic year).
+    </p>
+    <ul>
+      <li><strong>Location:</strong> Gijón, Asturias, Spain</li>
+      <li><strong>Year of birth:</strong> 2004</li>
+      <li><strong>Contact email:</strong> {{ email('garciabaldo04@gmail.com', 'inicio-1') }}</li>
+      <li><strong>University email:</strong> {{ email('uo295497@uniovi.es', 'inicio-2') }}</li>
+      <li>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'inicio-github', t.openGithub) }}
+      </li>
+    </ul>
+    <p>
+      <a href="{{ '/perfil/' | localizedUrl(lang) | url }}">View my profile and CV</a>
+      <a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">Explore projects</a>
+    </p>
+  </header>
+
+  <figure>
+    <span data-help>
+      <img src="{{ '/img/foto-personal-perfil.jpeg' | url }}" alt="Photograph of Manuel García Baldó" width="320"
+        height="320" fetchpriority="high" tabindex="0">
+      <span role="tooltip" id="ayuda-imagen-1" hidden>Photograph of Manuel García Baldó</span>
+    </span>
+    <figcaption>Manuel García Baldó — Gijón, Asturias</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="secciones-title">
+  <header>
+    <h2 id="secciones-title">Main sections</h2>
+    <p>Explore the sections of this website to learn about my background, projects and interests.
+    </p>
+  </header>
+
+  <ul>
+    <li>
+      <article>
+        <h3>Profile and CV</h3>
+        <p>Education, professional experience and full curriculum vitae.</p>
+        <p><a href="{{ '/perfil/' | localizedUrl(lang) | url }}">View profile &rarr;</a></p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <h3>Projects</h3>
+        <p>Detailed information about personal and professional projects, including <strong>Carburo</strong> (my final-year undergraduate project).</p>
+        <p><a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">View projects &rarr;</a></p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <h3>Technology interests</h3>
+        <p>Technical interests in software development, systems and networks.</p>
+        <p><a href="{{ '/intereses-profesionales/' | localizedUrl(lang) | url }}">Technology interests &rarr;</a></p>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <h3>Leisure</h3>
+        <p>Personal interests and leisure activities.</p>
+        <p><a href="{{ '/ocio/' | localizedUrl(lang) | url }}">Leisure &rarr;</a></p>
+      </article>
+    </li>
+  </ul>
+</section>

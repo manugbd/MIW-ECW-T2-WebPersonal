@@ -1,10 +1,11 @@
 ---
+translationKey: profile
 layout: base.njk
 title: Perfil y CV
 description: Perfil y CV de Manuel García Baldó, ingeniero de software en Gijón. Formación en la Universidad de Oviedo y experiencia en desarrollo de software en ASAC.
 breadcrumb: Perfil y CV
 ---
-{% from "contacto.njk" import email, social %}
+{% from "contacto.njk" import email, social with context %}
 <header>
   <h1>Perfil y CV</h1>
   <p>Información académica, trayectoria profesional y competencias técnicas en el ámbito del software y la ingeniería
@@ -41,9 +42,9 @@ breadcrumb: Perfil y CV
       <dt>Correo personal:</dt>
       <dd>{{ email('garciabaldo04@gmail.com', 'perfil-2') }}</dd>
       <dt>GitHub:</dt>
-      <dd>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'perfil-github', 'Abrir github.com/manugbd', false) }}</dd>
+      <dd>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'perfil-github', t.openGithub, false) }}</dd>
       <dt>LinkedIn:</dt>
-      <dd>{{ social('https://www.linkedin.com/', 'Manuel García Baldó', 'linkedin', 'perfil-linkedin', 'Abrir linkedin.com (sin perfil personal)', false) }}</dd>
+      <dd>{{ social('https://www.linkedin.com/', 'Manuel García Baldó', 'linkedin', 'perfil-linkedin', t.openLinkedin, false) }}</dd>
     </dl>
   </header>
 </section>

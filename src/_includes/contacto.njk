@@ -6,13 +6,13 @@
 {% if copy %}<span data-email-group>{% endif %}
 <span data-help>
   <a href="mailto:{{ address }}" aria-describedby="correo-{{ key }}">{{ address }}</a>
-  <span role="tooltip" id="correo-{{ key }}" hidden>Abrir correo en la aplicación</span>
+  <span role="tooltip" id="correo-{{ key }}" hidden>{{ t.openMail }}</span>
 </span>
 {% if copy %}
 <span data-help>
-  <button type="button" data-copy-email="{{ address }}" aria-label="Copiar {{ address }}"
+  <button type="button" data-copy-email="{{ address }}" aria-label="{{ t.copy }} {{ address }}"
     aria-describedby="copiar-{{ key }}" hidden>{{ icon('copy') }}</button>
-  <span role="tooltip" id="copiar-{{ key }}" hidden>Copiar correo</span>
+  <span role="tooltip" id="copiar-{{ key }}" hidden>{{ t.copyMail }}</span>
 </span></span>{% endif %}
 {% endmacro %}
 
