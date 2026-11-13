@@ -1,0 +1,125 @@
+---
+layout: "base.njk"
+lang: "fr"
+translationKey: "projects"
+title: "Projets"
+description: "Projets de Manuel García Baldó : Carburo pour Android avec Java et Spring Boot, et infrastructures web avec Docker, Terraform et Ansible."
+breadcrumb: "Projets"
+permalink: "/fr/projets/"
+---
+
+<section aria-label="Liste des projets présentés">
+  <header>
+    <h1>Projets</h1>
+    <p>
+      Sélection de projets de développement logiciel et de déploiement d’infrastructures.
+    </p>
+  </header>
+  <!-- Proyecto Destacado: Carburo -->
+  <article aria-labelledby="carburo-title">
+    <header>
+        <h2 id="carburo-title">Carburo — Gestion intelligente du carburant</h2>
+        <p>Projet de fin d’études &amp; écosystème mobile et web</p>
+    </header>
+
+    <section>
+      <p>
+        <strong>Carburo</strong> est une plateforme complète destinée à optimiser les dépenses de carburant, avec des informations en temps réel sur les stations-service et l’évolution des prix, ainsi qu’un suivi détaillé de la consommation et des pleins.
+      </p>
+
+      <section aria-label="Composants de l’écosystème Carburo">
+        <article>
+          <h3>Application mobile native (projet de fin d’études principal)</h3>
+          <p>
+            Elle constitue le cœur de mon projet de fin d’études en ingénierie informatique du logiciel. Développée nativement pour Android, elle propose la géolocalisation, le filtrage par carburant, la comparaison visuelle des prix et l’analyse de l’efficacité énergétique des véhicules enregistrés.
+          </p>
+        </article>
+
+        <article>
+          <h3>Plateforme web et services complémentaires</h3>
+          <p>
+            Développement complémentaire qui étend l’écosystème au web et permet de consulter des statistiques, des cartes interactives de stations-service et de gérer son profil depuis un navigateur.
+          </p>
+        </article>
+      </section>
+
+      <h3>Architecture et technologies utilisées</h3>
+      <p>
+        L’écosystème repose sur une architecture modulaire fondée sur des services REST découplés :
+      </p>
+      <ul>
+        <li>Android SDK</li>
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>PostgreSQL</li>
+        <li>REST API</li>
+        <li>Docker</li>
+        <li>Git / GitHub</li>
+      </ul>
+
+      <footer>
+        <p><strong>Liens du projet :</strong></p>
+        <ul>
+          <li>
+            <a href="https://carburo.app" target="_blank" rel="noopener noreferrer">
+              Visiter le site officiel (carburo.app) &rarr;
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/manugbd" target="_blank" rel="noopener noreferrer">
+              Mon profil GitHub (github.com/manugbd) &rarr;
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </section>
+  </article>
+
+  <!-- Proyecto: Infraestructura Web Segura -->
+  <article aria-labelledby="infra-title">
+    <header>
+        <h2 id="infra-title">Infrastructure web sécurisée et automatisée</h2>
+        <p>Projet du master universitaire en ingénierie web</p>
+    </header>
+
+    <section>
+      <p>
+        Développement d’un environnement complet d’infrastructure sous forme de code (IaC) pour le déploiement orchestré et sécurisé d’applications web dans des environnements virtualisés et cloud. Le système assure le provisionnement automatisé, la configuration de réseaux isolés, les pare-feu périmétriques, les conteneurs et la gestion des certificats HTTPS.
+      </p>
+
+      <h3>Technologies utilisées</h3>
+      <ul>
+        <li>OpenStack</li>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>Linux (Debian/Ubuntu)</li>
+        <li>Docker &amp; Compose</li>
+        <li>Sécurité &amp; HTTPS</li>
+      </ul>
+    </section>
+  </article>
+
+  <!-- Proyecto: Sitio Web Personal ECW -->
+  <article aria-labelledby="ecw-title">
+    <header>
+        <h2 id="ecw-title">Site personnel et universitaire (ECW)</h2>
+        <p>Standards et informatique du web</p>
+    </header>
+
+    <section>
+      <p>
+        Ce site a été conçu selon les principes du cours <em>Standards et informatique du web</em>. Développé avec Eleventy et Nunjucks, il sépare les responsabilités grâce au HTML5 sémantique, aux feuilles CSS externes et à la cascade, avec la validation W3C comme objectif de développement.
+      </p>
+
+      <h3>Technologies et standards</h3>
+      <ul>
+        <li>HTML5 sémantique</li>
+        <li>CSS3 / Cascade</li>
+        <li>Eleventy (11ty)</li>
+        <li>Nunjucks</li>
+        <li>Accessibilité WCAG</li>
+        <li>Validation W3C</li>
+      </ul>
+    </section>
+  </article>
+</section>

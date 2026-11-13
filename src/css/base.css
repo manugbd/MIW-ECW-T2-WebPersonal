@@ -43,7 +43,7 @@ body > a:first-of-type {
 
 body > a:first-of-type:focus {
   top: var(--space-md);
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-primary);
 }
 
 /* Foco visible estandarizado para accesibilidad */
@@ -51,14 +51,21 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 video:focus-visible,
-audio:focus-visible {
+audio:focus-visible,
+summary:focus-visible,
+img[tabindex]:focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
 /* Tipografia y encabezados */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-text-main);
   line-height: var(--line-height-tight);
   font-weight: 700;
@@ -101,11 +108,13 @@ a:hover {
   text-decoration: underline;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -185,4 +194,91 @@ main > header:first-of-type p {
   main {
     padding: var(--space-md);
   }
+}
+
+main [id] {
+  scroll-margin-top: 10rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none;
+  }
+}
+
+/* Ayuda reutilizable: los identificadores solo relacionan los controles con sus descripciones. */
+[data-help] {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+[data-help] > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  padding: 0;
+  margin-left: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  color: var(--color-primary);
+  background: transparent;
+  cursor: pointer;
+}
+
+[data-help] > [role="tooltip"] {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: max-content;
+  max-width: min(32rem, calc(100vw - 2rem));
+  padding: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+  text-align: left;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  overflow-wrap: anywhere;
+}
+
+[data-help] > button + [role="tooltip"] {
+  left: auto;
+  right: 0;
+}
+
+[data-help] > [hidden] {
+  display: none;
+}
+
+/* Solo el nombre se subraya; toda la identificación sigue siendo un enlace. */
+a[data-social],
+a[data-social]:hover {
+  text-decoration: none;
+}
+
+a[data-social] > span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a[data-social] img {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
 }

@@ -58,7 +58,9 @@ header > nav:last-of-type a {
   font-size: var(--font-size-sm);
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 header > nav:last-of-type a:hover {
@@ -72,28 +74,174 @@ header > nav:last-of-type a[aria-current="page"] {
   font-weight: 700;
 }
 
-/* Adaptacion para tabletas */
-@media (max-width: 900px) {
+/* Los controles ocultos quedan fuera de la vista y de la tabulación. */
+body > header > button[hidden],
+body > header > nav[hidden],
+body > header > [role="tooltip"][hidden] {
+  display: none;
+}
+
+body > header > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body > header > button:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+body > header > [role="tooltip"] {
+  position: absolute;
+  top: 100%;
+  right: var(--space-md);
+  max-width: min(32rem, calc(100vw - 2rem));
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 70rem) {
   body > header {
-    flex-direction: column;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
     padding: var(--space-md);
   }
+  body > header > nav:first-of-type {
+    flex: 1;
+    min-width: 0;
+  }
 
-  header > nav:last-of-type ul {
-    flex-wrap: wrap;
-    justify-content: center;
+  body > header > nav:first-of-type a {
+    text-align: left;
+  }
+
+  body > header > nav:first-of-type a span:first-of-type {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    overflow-wrap: anywhere;
+  }
+
+  body > header > nav:last-of-type {
+    flex-basis: 100%;
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
+  }
+
+  body > header > nav:last-of-type ul {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: var(--space-2xs);
+  }
+  body > header > nav:last-of-type a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--font-size-base);
   }
 }
 
-/* Adaptacion para telefonos moviles */
-@media (max-width: 640px) {
-  header > nav:last-of-type ul {
-    gap: var(--space-2xs);
-  }
+/* La página actual también se distingue sin depender del color. */
+body > header > nav:last-of-type a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
 
-  header > nav:last-of-type a {
-    padding: var(--space-2xs) var(--space-xs);
-    font-size: var(--font-size-xs);
+/* Selector de idioma nativo: accesible sin JavaScript y sin banderas. */
+body > header {
+  gap: var(--space-sm);
+}
+
+body > header > details {
+  position: relative;
+  flex-shrink: 0;
+}
+
+body > header > details > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+body > header > details > summary::after {
+  content: "▾";
+}
+
+body > header > details > summary img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+body > header > details > summary:hover {
+  background-color: var(--color-primary-light);
+}
+
+body > header > details > ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 10rem;
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+body > header > details a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+body > header > details a:hover,
+body > header > details a[aria-current] {
+  background: var(--color-primary-light);
+  font-weight: 700;
+}
+
+@media (max-width: 70rem) {
+  body > header > nav:first-of-type { order: 0; }
+  body > header > details { order: 1; }
+  body > header > button { order: 2; }
+  body > header > nav:last-of-type { order: 3; }
+  body > header > details > summary { font-size: var(--font-size-sm); }
+}
+
+@media (max-width: 30rem) {
+  body > header > nav:first-of-type { flex-basis: 100%; }
+  body > header > details { margin-left: auto; }
+}
+
+@media (min-width: 70.001rem) {
+  body > header > nav:first-of-type {
+    flex: 1;
   }
 }

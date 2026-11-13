@@ -1,0 +1,99 @@
+---
+layout: "base.njk"
+lang: "fr"
+translationKey: "leisure"
+title: "Loisirs"
+description: "Jeux vidéo, musique, cinéma et promenades dans les Asturies et à León. Un regard personnel au-delà du développement logiciel."
+breadcrumb: "Loisirs"
+permalink: "/fr/loisirs/"
+---
+
+<section aria-labelledby="ocio-heading">
+  <header>
+    <h1 id="ocio-heading">Loisirs</h1>
+    <p>
+      Passions et activités de mon temps libre qui me permettent de déconnecter de la vie universitaire et professionnelle.
+    </p>
+  </header>
+  <article aria-labelledby="videojuegos-heading">
+    <header>
+      <h2 id="videojuegos-heading">Jeux vidéo</h2>
+      <p>Loisirs numériques</p>
+    </header>
+    <p>
+      Les jeux vidéo font partie de mes principaux loisirs. J’apprécie particulièrement les jeux de stratégie, de simulation, de rôle et de gestion de ressources, où la prise de décision et la planification jouent un rôle important.
+    </p>
+  </article>
+
+  <article aria-labelledby="podcast-heading">
+    <header>
+      <h2 id="podcast-heading">Information et actualité</h2>
+      <p>Actualité et divertissement</p>
+    </header>
+    <p>J’aime également suivre l’actualité et les événements marquants de la journée. Les contenus audio et les podcasts sont un moyen pratique de le faire pendant mes déplacements ou d’autres activités.</p>
+  </article>
+
+  <article aria-labelledby="musica-heading">
+    <header>
+      <h2 id="musica-heading">Musique</h2>
+      <p>Concentration et détente</p>
+    </header>
+    <p>La musique m’accompagne aussi bien pendant mes moments de détente que lors de mes séances d’étude et de programmation. J’écoute différents styles, même si certaines chansons ont une signification particulière et font partie de mes préférences.</p>
+    <figure>
+      <audio controls preload="none" aria-disabled="true" aria-label="Lecteur audio désactivé" aria-describedby="aviso-audio" tabindex="-1" inert>
+        Votre navigateur ne prend pas en charge l’audio HTML5.
+      </audio>
+      <figcaption>
+        <cite lang="es">Un beso y una flor</cite>, de Nino Bravo, l’une de mes chansons préférées.
+        <br>
+        <small id="aviso-audio">Audio désactivé pour des raisons de droits d’auteur.</small>
+      </figcaption>
+    </figure>
+  </article>
+
+  <article aria-labelledby="cine-heading">
+    <header>
+      <h2 id="cine-heading">Cinéma et séries</h2>
+      <p>Audiovisuel</p>
+    </header>
+    <p>
+      Dans le domaine audiovisuel, je m’intéresse particulièrement à la science-fiction et au mystère.
+    </p>
+    <p>
+      J’apprécie particulièrement les récits qui abordent des dilemmes liés à la technologie, à la société et à l’avenir, ainsi que ceux qui permettent d’explorer différents points de vue.
+    </p>
+  </article>
+
+  <article aria-labelledby="naturaleza-heading">
+    <header>
+      <h2 id="naturaleza-heading">Nature et randonnées</h2>
+      <p>Activités de plein air</p>
+    </header>
+    <p>
+      J’aime passer du temps en plein air et parcourir les espaces naturels. Le littoral asturien et les paysages de la mer Cantabrique font partie de mes lieux habituels de détente.
+    </p>
+    <p>
+      J’entretiens également un lien particulier avec plusieurs zones rurales de León, où j’apprécie la vie loin de la ville.
+    </p>
+  </article>
+
+  <article aria-labelledby="video-heading">
+    <header>
+      <h2 id="video-heading">L’hiver au village</h2>
+      <p>Nature et paysages</p>
+    </header>
+    <p>
+      Les hivers au village offrent des paysages très différents du reste de l’année. La neige transforme les environs et crée un spectacle inhabituel, notamment lorsqu’elle recouvre les chemins, les champs et les montagnes.
+    </p>
+    <figure>
+      <video controls preload="metadata" width="640" height="360">
+        <source src="{{ '/video/video-presentacion.mp4' | url }}" type="video/mp4">
+        Votre navigateur ne prend pas en charge la vidéo HTML5. Vous pouvez
+        <a href="{{ '/video/video-presentacion.mp4' | url }}" download>télécharger directement la vidéo</a>.
+      </video>
+      <figcaption>
+        Vidéo d’une journée d’hiver enneigée au village.
+      </figcaption>
+    </figure>
+  </article>
+</section>

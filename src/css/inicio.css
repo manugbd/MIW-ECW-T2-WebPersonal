@@ -1,7 +1,7 @@
 /* inicio.css */
 
 /* Seccion de presentacion */
-main>section:first-of-type {
+main > section:first-of-type {
   display: flex;
   gap: var(--space-2xl);
   align-items: center;
@@ -13,12 +13,12 @@ main>section:first-of-type {
   margin-bottom: var(--space-2xl);
 }
 
-main>section:first-of-type>header {
+main > section:first-of-type > header {
   flex: 1 1 60%;
   margin-bottom: 0;
 }
 
-main>section:first-of-type>header p:first-of-type {
+main > section:first-of-type > header p:first-of-type {
   font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--color-secondary);
@@ -26,7 +26,7 @@ main>section:first-of-type>header p:first-of-type {
 }
 
 /* Metadatos y contacto rapido */
-main>section:first-of-type>header>ul {
+main > section:first-of-type > header > ul {
   margin: var(--space-md) 0 var(--space-lg) 0;
   padding: var(--space-md);
   background-color: var(--color-bg);
@@ -34,24 +34,24 @@ main>section:first-of-type>header>ul {
   border-left: 4px solid var(--color-primary);
 }
 
-main>section:first-of-type>header>ul li {
+main > section:first-of-type > header > ul li {
   margin-bottom: var(--space-2xs);
   font-size: var(--font-size-sm);
 }
 
-main>section:first-of-type>header>ul li:last-child {
+main > section:first-of-type > header > ul li:last-child {
   margin-bottom: 0;
 }
 
 /* Botones de accion en la presentacion */
-main>section:first-of-type>header>p:last-of-type {
+main > section:first-of-type > header > p:last-of-type {
   display: flex;
   gap: var(--space-md);
   flex-wrap: wrap;
   margin-bottom: 0;
 }
 
-main>section:first-of-type>header>p:last-of-type a {
+main > section:first-of-type > header > p:last-of-type a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -65,24 +65,24 @@ main>section:first-of-type>header>p:last-of-type a {
   transition: all var(--transition-fast);
 }
 
-main>section:first-of-type>header>p:last-of-type a:first-of-type {
+main > section:first-of-type > header > p:last-of-type a:first-of-type {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
 }
 
-main>section:first-of-type>header>p:last-of-type a:first-of-type:hover {
+main > section:first-of-type > header > p:last-of-type a:first-of-type:hover {
   background-color: var(--color-primary-hover);
   color: var(--color-text-inverse);
   text-decoration: none;
   box-shadow: var(--shadow-sm);
 }
 
-main>section:first-of-type>header>p:last-of-type a:last-of-type {
+main > section:first-of-type > header > p:last-of-type a:last-of-type {
   background-color: var(--color-secondary);
   color: var(--color-text-inverse);
 }
 
-main>section:first-of-type>header>p:last-of-type a:last-of-type:hover {
+main > section:first-of-type > header > p:last-of-type a:last-of-type:hover {
   background-color: var(--color-secondary-hover);
   color: var(--color-text-inverse);
   text-decoration: none;
@@ -90,7 +90,7 @@ main>section:first-of-type>header>p:last-of-type a:last-of-type:hover {
 }
 
 /* Fotografia personal */
-main>section:first-of-type>figure {
+main > section:first-of-type > figure {
   flex: 0 0 280px;
   display: flex;
   flex-direction: column;
@@ -98,7 +98,7 @@ main>section:first-of-type>figure {
   text-align: center;
 }
 
-main>section:first-of-type>figure img {
+main > section:first-of-type > figure img {
   width: 240px;
   height: 240px;
   border-radius: 50%;
@@ -107,7 +107,7 @@ main>section:first-of-type>figure img {
   box-shadow: var(--shadow-md);
 }
 
-main>section:first-of-type>figure figcaption {
+main > section:first-of-type > figure figcaption {
   margin-top: var(--space-sm);
   font-size: var(--font-size-xs);
   color: var(--color-text-subtle);
@@ -115,26 +115,26 @@ main>section:first-of-type>figure figcaption {
 }
 
 /* Grilla de apartados principales */
-main>section:nth-of-type(2) {
+main > section:nth-of-type(2) {
   margin-bottom: var(--space-2xl);
 }
 
-main>section:nth-of-type(2)>header {
+main > section:nth-of-type(2) > header {
   margin-bottom: var(--space-lg);
 }
 
-main>section:nth-of-type(2)>header p {
+main > section:nth-of-type(2) > header p {
   font-size: var(--font-size-md);
   color: var(--color-text-subtle);
 }
 
-main>section:nth-of-type(2)>ul {
+main > section:nth-of-type(2) > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-lg);
 }
 
-main>section:nth-of-type(2)>ul>li>article {
+main > section:nth-of-type(2) > ul > li > article {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-lg);
@@ -143,20 +143,22 @@ main>section:nth-of-type(2)>ul>li>article {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
-main>section:nth-of-type(2)>ul>li>article:hover {
+main > section:nth-of-type(2) > ul > li > article:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
-main>section:nth-of-type(2) article p:first-of-type {
+main > section:nth-of-type(2) article p:first-of-type {
   flex-grow: 1;
   font-size: var(--font-size-sm);
 }
 
-main>section:nth-of-type(2) article p:last-of-type a {
+main > section:nth-of-type(2) article p:last-of-type a {
   font-weight: 600;
   display: inline-block;
   margin-top: var(--space-xs);
@@ -164,17 +166,45 @@ main>section:nth-of-type(2) article p:last-of-type a {
 
 /* Adaptacion responsiva */
 @media (max-width: 900px) {
-  main>section:first-of-type {
+  main > section:first-of-type {
     flex-direction: column-reverse;
     text-align: center;
     padding: var(--space-xl);
   }
 
-  main>section:first-of-type>header>ul {
+  main > section:first-of-type > header > ul {
     text-align: left;
   }
 
-  main>section:first-of-type>header>p:last-of-type {
+  main > section:first-of-type > header > p:last-of-type {
     justify-content: center;
+  }
+}
+/* Un solo enlace por tarjeta; su área de pulsación cubre el artículo. */
+main > section:nth-of-type(2) > ul > li > article {
+  position: relative;
+}
+
+main > section:nth-of-type(2) article p:last-of-type a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+}
+
+main > section:nth-of-type(2) > ul > li > article:hover,
+main > section:nth-of-type(2) > ul > li > article:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+main > section:nth-of-type(2) article p:last-of-type a:focus-visible::after {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section:nth-of-type(2) > ul > li > article:hover {
+    transform: none;
   }
 }

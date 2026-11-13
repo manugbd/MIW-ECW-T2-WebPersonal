@@ -112,3 +112,25 @@ Si se publica bajo una subcarpeta, `SITE_URL` debe incluirla y `ELEVENTY_PATH_PR
 Si se cambia el dominio, conservar el anterior con redirecciones permanentes siempre que sea posible y actualizar los enlaces externos y Search Console. Las redirecciones y la verificación DNS se gestionan fuera de estas plantillas.
 
 Estas mejoras facilitan el rastreo y la interpretación del contenido; no garantizan posiciones ni resultados enriquecidos. El siguiente paso editorial es ampliar los proyectos con resultados, capturas y enlaces específicos verificables.
+
+## Idiomas: español, inglés y francés
+
+El sitio genera HTML estático para los tres idiomas. No descarga traducciones ni bibliotecas de idiomas en el navegador.
+
+| Página | Español | English | Français |
+| --- | --- | --- | --- |
+| Inicio | / | /en/ | /fr/ |
+| Perfil | /perfil/ | /en/profile/ | /fr/profil/ |
+| Proyectos | /proyectos/ | /en/projects/ | /fr/projets/ |
+| Intereses | /intereses-profesionales/ | /en/interests/ | /fr/interets/ |
+| Ocio | /ocio/ | /en/leisure/ | /fr/loisirs/ |
+
+- **Contenido:** las plantillas españolas siguen en la raíz de src; las traducciones se editan en src/en y src/fr.
+- **Textos compartidos y rutas:** src/_data/i18n.js contiene navegación, pie, ayuda, tooltips y mensajes. Las claves de página (translationKey) relacionan las versiones, aunque tengan nombres de URL diferentes.
+- **Idioma y fechas:** src/_data/eleventyComputed.js proporciona los textos comunes y el formato de fecha; site.updated sigue siendo la fecha real de revisión editable en src/_data/site.js.
+- **Selector:** enlaces nativos dentro de details, con nombres de idiomas e icono local; funciona sin JavaScript. JavaScript añade cierre con Escape, clic exterior y salida de foco. No hay redirección automática ni elección mediante banderas.
+- **Recursos compartidos:** todos los idiomas utilizan los mismos CSS, JavaScript, imágenes, PDF y vídeo. El PDF del CV está en español y las páginas traducidas lo indican. El vídeo original se conserva, con su descripción traducida.
+- **SEO:** SITE_URL activa canónicas, alternativas hreflang recíprocas (es, en, fr y x-default), Open Graph y JSON-LD localizados. El sitemap incluye las 15 páginas indexables y excluye las tres páginas 404.
+- **Errores:** se generan /404.html, /en/404.html y /fr/404.html. El alojamiento decide qué documento devuelve para una URL inexistente; GitHub Pages utiliza el 404 de la raíz.
+
+Tras compilar, ejecutar npm run check para comprobar enlaces internos, recursos, anclas, ARIA, selector y metadatos. npm run check:interactions comprueba el comportamiento de cierre y los mensajes de copia en los tres idiomas, incluidos errores y contexto inseguro. Son comprobaciones locales; no sustituyen la validación HTML/CSS de W3C ni una auditoría WCAG.

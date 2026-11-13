@@ -1,0 +1,15 @@
+---
+layout: "base.njk"
+lang: "fr"
+translationKey: "notFound"
+title: "Page introuvable"
+description: "La page demandée n’existe pas. Consultez le profil et les projets de Manuel García Baldó."
+breadcrumb: "Page introuvable"
+permalink: "/fr/404.html"
+noindex: true
+---
+<header>
+  <h1>Page introuvable</h1>
+  <p>Le lien a peut-être changé ou l’adresse est incomplète.</p>
+  <p><a href="{{ '/' | localizedUrl(lang) | url }}">Retour à l’accueil</a> ou <a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">découvrir mes projets</a>.</p>
+</header>

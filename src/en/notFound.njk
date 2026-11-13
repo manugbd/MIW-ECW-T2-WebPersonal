@@ -1,0 +1,15 @@
+---
+layout: "base.njk"
+lang: "en"
+translationKey: "notFound"
+title: "Page not found"
+description: "The requested page does not exist. Explore Manuel García Baldó’s profile and projects."
+breadcrumb: "Page not found"
+permalink: "/en/404.html"
+noindex: true
+---
+<header>
+  <h1>Page not found</h1>
+  <p>The link may have changed or the address may be incomplete.</p>
+  <p><a href="{{ '/' | localizedUrl(lang) | url }}">Back to home</a> or <a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">explore my projects</a>.</p>
+</header>
