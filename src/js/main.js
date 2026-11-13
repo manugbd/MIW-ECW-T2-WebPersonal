@@ -17,15 +17,28 @@
       copyrightTime.dateTime = year;
     }
 
+    const tooltipDelay = 700; // Retardo de apertura de las ayudas, en milisegundos.
+
     // Menú desplegable: sin JavaScript los enlaces permanecen visibles.
     const menuButton = document.querySelector(
       'button[aria-controls="navegacion-principal"]',
     );
-    
+
     const menu = document.getElementById("navegacion-principal");
     const tooltip = document.getElementById("ayuda-menu");
 
     if (menuButton && menu) {
+      let menuTooltipTimer;
+      const hideMenuTooltip = () => {
+        clearTimeout(menuTooltipTimer);
+        tooltip.hidden = true;
+      };
+      const showMenuTooltip = () => {
+        clearTimeout(menuTooltipTimer);
+        menuTooltipTimer = setTimeout(() => {
+          tooltip.hidden = false;
+        }, tooltipDelay);
+      };
       const mobile = window.matchMedia("(max-width: 900px)");
       const setOpen = (open) => {
         menuButton.setAttribute("aria-expanded", String(open));
@@ -44,18 +57,18 @@
           menu.querySelector("a").focus();
         }
         menuButton.hidden = !mobile.matches;
-        tooltip.hidden = true;
+        hideMenuTooltip();
         setOpen(false);
       };
 
       menuButton.addEventListener("click", () => {
-        tooltip.hidden = true;
+        hideMenuTooltip();
         setOpen(menuButton.getAttribute("aria-expanded") !== "true");
       });
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-          tooltip.hidden = true;
+          hideMenuTooltip();
           if (
             mobile.matches &&
             menuButton.getAttribute("aria-expanded") === "true"
@@ -66,33 +79,76 @@
         }
       });
 
-      menuButton.addEventListener("mouseenter", () => {
-        tooltip.hidden = false;
-      });
-
-      menuButton.addEventListener("focus", () => {
-        tooltip.hidden = false;
-      });
-
-      menuButton.addEventListener("mouseleave", () => {
-        tooltip.hidden = true;
-      });
-
-      menuButton.addEventListener("blur", () => {
-        tooltip.hidden = true;
-      });
-
+      menuButton.addEventListener("mouseenter", showMenuTooltip);
+      menuButton.addEventListener("focus", showMenuTooltip);
+      menuButton.addEventListener("mouseleave", hideMenuTooltip);
+      menuButton.addEventListener("blur", hideMenuTooltip);
       tooltip.addEventListener("mouseenter", () => {
+        clearTimeout(menuTooltipTimer);
         tooltip.hidden = false;
       });
-
-      tooltip.addEventListener("mouseleave", () => {
-        tooltip.hidden = true;
-      });
+      tooltip.addEventListener("mouseleave", hideMenuTooltip);
 
       mobile.addEventListener("change", syncMenu);
       syncMenu();
     }
+
+    // Una acción de copia independiente por dirección; no altera el enlace mailto.
+    const copyStatus = document.querySelector("[data-copy-status]");
+    document.querySelectorAll("button[data-copy-email]").forEach((button) => {
+      if (!navigator.clipboard || !window.isSecureContext || !copyStatus)
+        return;
+      button.hidden = false;
+      button.addEventListener("click", async () => {
+        button.disabled = true;
+        copyStatus.textContent = "Copiando " + button.dataset.copyEmail + "…";
+        try {
+          await navigator.clipboard.writeText(button.dataset.copyEmail);
+          copyStatus.textContent =
+            "Correo copiado: " + button.dataset.copyEmail;
+        } catch {
+          copyStatus.textContent =
+            "No se pudo copiar. Selecciona la dirección y cópiala manualmente.";
+        } finally {
+          button.disabled = false;
+        }
+      });
+    });
+    // Tooltips persistentes mientras el puntero o el foco estén en su grupo.
+    document.querySelectorAll("[data-help]").forEach((group) => {
+      const tip = group.querySelector('[role="tooltip"]');
+      if (!tip) return;
+      let showTimer, hideTimer;
+      const show = () => {
+        clearTimeout(hideTimer);
+        if (!tip.hidden) return;
+        clearTimeout(showTimer);
+        showTimer = setTimeout(() => {
+          tip.hidden = false;
+        }, tooltipDelay);
+      };
+      const hide = () => {
+        clearTimeout(showTimer);
+        hideTimer = setTimeout(() => {
+          if (
+            !group.matches(":hover") &&
+            !group.contains(document.activeElement)
+          )
+            tip.hidden = true;
+        }, 150);
+      };
+      group.addEventListener("mouseenter", show);
+      group.addEventListener("mouseleave", hide);
+      group.addEventListener("focusin", show);
+      group.addEventListener("focusout", hide);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          clearTimeout(showTimer);
+          clearTimeout(hideTimer);
+          tip.hidden = true;
+        }
+      });
+    });
 
     // 2. Comprobación y mejora de accesibilidad para reproductores multimedia nativos
     const mediaElements = document.querySelectorAll("video, audio");

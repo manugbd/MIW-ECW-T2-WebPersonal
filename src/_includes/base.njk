@@ -1,3 +1,4 @@
+{% from "contacto.njk" import email, icon, social %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,10 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ description }}">
-  <link rel="icon" href="{{ "/favicon.ico" | url }}">
+  <link rel="icon" href="{{ " /favicon.ico" | url }}">
   <meta name="author" content="{{ site.name }}">
   <title>{{ seoTitle or (title ~ ' | ' ~ site.name) }}</title>
-  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+  {% if noindex %}
+  <meta name="robots" content="noindex, follow">{% endif %}
   {% if site.url and not noindex %}
   <link rel="canonical" href="{{ page.url | absoluteUrl }}">
   <meta property="og:type" content="{% if page.url == '/perfil/' %}profile{% else %}website{% endif %}">
@@ -25,7 +27,8 @@
   <meta name="twitter:image" content="{{ site.image | absoluteUrl }}">
   <meta name="twitter:image:alt" content="{{ site.imageAlt }}">
   <meta name="google-site-verification" content="DttKDazyyCJv4j2IU443DcO6_MISbrQix5wjIcHTh7M" />
-  <script type="application/ld+json">{{ {page: page, title: title, seoTitle: seoTitle, description: description, breadcrumb: breadcrumb} | structuredData | jsonLd | safe }}</script>
+  <script
+    type="application/ld+json">{{ {page: page, title: title, seoTitle: seoTitle, description: description, breadcrumb: breadcrumb} | structuredData | jsonLd | safe }}</script>
   {% endif %}
   <link rel="stylesheet" href="{{ '/css/colores.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/base.css' | url }}">
@@ -38,10 +41,10 @@
   {% elif page.url == "/proyectos/" %}
   <link rel="stylesheet" href="{{ '/css/proyectos.css' | url }}">
   {% elif page.url == "/intereses-profesionales/" %}
-<link rel="stylesheet" href="{{ '/css/intereses.css' | url }}">
-{% elif page.url == "/ocio/" %}
-<link rel="stylesheet" href="{{ '/css/intereses.css' | url }}">
-{% endif %}
+  <link rel="stylesheet" href="{{ '/css/intereses.css' | url }}">
+  {% elif page.url == "/ocio/" %}
+  <link rel="stylesheet" href="{{ '/css/intereses.css' | url }}">
+  {% endif %}
 </head>
 
 <body>
@@ -55,7 +58,8 @@
       </a>
     </nav>
 
-    <button type="button" hidden aria-expanded="false" aria-controls="navegacion-principal" aria-describedby="ayuda-menu">
+    <button type="button" hidden aria-expanded="false" aria-controls="navegacion-principal"
+      aria-describedby="ayuda-menu">
       <span aria-hidden="true">☰</span>
       <span>Menú</span>
     </button>
@@ -64,9 +68,12 @@
     <nav id="navegacion-principal" aria-label="Navegación principal">
       <ul>
         <li><a href="{{ '/' | url }}" {% if page.url=="/" %}aria-current="page" {% endif %}>Inicio</a></li>
-        <li><a href="{{ '/perfil/' | url }}" {% if page.url=="/perfil/" %}aria-current="page" {% endif %}>Mi perfil</a></li>
-        <li><a href="{{ '/proyectos/' | url }}" {% if page.url=="/proyectos/" %}aria-current="page" {% endif %}>Proyectos</a></li>
-        <li><a href="{{ '/intereses-profesionales/' | url }}" {% if page.url=="/intereses-profesionales/" %}aria-current="page" {% endif %}>Intereses tecnológicos</a></li>
+        <li><a href="{{ '/perfil/' | url }}" {% if page.url=="/perfil/" %}aria-current="page" {% endif %}>Perfil y
+            CV</a></li>
+        <li><a href="{{ '/proyectos/' | url }}" {% if page.url=="/proyectos/" %}aria-current="page" {% endif
+            %}>Proyectos</a></li>
+        <li><a href="{{ '/intereses-profesionales/' | url }}" {% if page.url=="/intereses-profesionales/"
+            %}aria-current="page" {% endif %}>Intereses tecnológicos</a></li>
         <li><a href="{{ '/ocio/' | url }}" {% if page.url=="/ocio/" %}aria-current="page" {% endif %}>Ocio</a></li>
       </ul>
     </nav>
@@ -98,7 +105,7 @@
       <h2>Manuel García Baldó</h2>
       <p>
         Sitio web personal y académico desarrollado para la asignatura
-        <em>Estándares y Computación Web (ECW)</em> 
+        <em>Estándares y Computación Web (ECW)</em>
         del Máster Universitario en Ingeniería Web (Universidad de Oviedo).
       </p>
     </section>
@@ -106,26 +113,43 @@
     <section aria-labelledby="titulo-contacto">
       <h2 id="titulo-contacto">Contacto y Redes</h2>
       <address>
-        <p>Ubicación: Gijón, Asturias, España</p>
-        <p>Correo público: <a href="mailto:uo295497@uniovi.es">uo295497@uniovi.es</a></p>
-        <p>GitHub: <a href="https://github.com/manugbd" target="_blank" rel="noopener noreferrer">github.com/manugbd</a>
-        </p>
+        <p>{{ icon('location') }} Gijón, Asturias, España</p>
+        <p>{{ icon('mail') }} Universidad: {{ email('uo295497@uniovi.es', 'pie-universidad', true) }}</p>
+        <p>{{ icon('mail') }} Personal: {{ email('garciabaldo04@gmail.com', 'pie-personal', true) }}</p>
+        <p>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'github', 'Abrir github.com/manugbd') }}</p>
+        <p>{{ social('https://www.linkedin.com/', 'Manuel García Baldó', 'linkedin', 'linkedin', 'Abrir linkedin.com
+          (sin perfil personal)') }}</p>
       </address>
+      <p role="status" aria-live="polite" aria-atomic="true" data-copy-status></p>
     </section>
 
     <nav aria-labelledby="titulo-mapa">
       <h2 id="titulo-mapa">Mapa del sitio</h2>
       <ul>
         <li><a href="{{ '/' | url }}">Inicio</a></li>
-        <li><a href="{{ '/perfil/' | url }}">Mi perfil y CV</a></li>
+        <li><a href="{{ '/perfil/' | url }}">Perfil y CV</a></li>
         <li><a href="{{ '/proyectos/' | url }}">Proyectos</a></li>
-        <li><a href="{{ '/intereses-profesionales/' | url }}">Intereses</a></li>
+        <li><a href="{{ '/intereses-profesionales/' | url }}">Intereses tecnológicos</a></li>
         <li><a href="{{ '/ocio/' | url }}">Ocio</a></li>
       </ul>
     </nav>
 
+    <details>
+      <summary>Ayuda sobre esta web</summary>
+      <p>El menú principal y el mapa del sitio permiten acceder a todas las páginas. Las migas de pan indican dónde
+        estás.</p>
+      <p>En <a href="{{ '/perfil/' | url }}">Perfil y CV</a> encontrarás formación, experiencia y el currículum en PDF.
+        En <a href="{{ '/proyectos/' | url }}">Proyectos</a> puedes consultar los trabajos realizados.</p>
+      <p>Con teclado, utiliza Tab y Mayús + Tab para recorrer los enlaces y botones, y Enter para activarlos. El primer
+        enlace permite saltar al contenido. En móvil, el botón Menú muestra la navegación y Escape la cierra.</p>
+      <p>Para contactar, utiliza el enlace de correo. Si no tienes una aplicación de correo configurada, puedes copiar
+        la dirección y pegarla en tu servicio habitual.</p>
+    </details>
+
     <p>
-      <span>&copy; <time data-copyright datetime="2026">2026</time> Manuel García Baldó. Todos los derechos reservados.</span>
+      <span>&copy; 
+        <time data-copyright datetime="2026">2026</time> Manuel García Baldó. Todos los derechos reservados.
+      </span>
       <span>Última actualización: <time datetime="{{ site.updated }}">{{ site.updatedLabel }}</time>.</span>
     </p>
   </footer>

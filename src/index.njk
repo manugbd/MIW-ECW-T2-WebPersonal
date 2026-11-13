@@ -5,6 +5,7 @@ seoTitle: Manuel García Baldó | Ingeniería de software y desarrollo web
 description: Página web personal y académica de Manuel García Baldó. Graduado en Ingeniería Informática del Software y estudiante del Máster en Ingeniería Web en la Universidad de Oviedo.
 breadcrumb: Inicio
 ---
+{% from "contacto.njk" import email, social %}
 <section aria-labelledby="hero-title">
   <header>
     <h1 id="hero-title">Manuel García Baldó</h1>
@@ -18,11 +19,10 @@ breadcrumb: Inicio
     <ul>
       <li><strong>Ubicación:</strong> Gijón, Asturias, España</li>
       <li><strong>Año de nacimiento:</strong> 2004</li>
-      <li><strong>Correo de contacto:</strong> <a href="mailto:garciabaldo04@gmail.com">garciabaldo04@gmail.com</a></li>
-      <li><strong>Correo de contacto (universidad):</strong> <a href="mailto:uo295497@uniovi.es">uo295497@uniovi.es</a>
+      <li><strong>Correo de contacto:</strong> {{ email('garciabaldo04@gmail.com', 'inicio-1') }}</li>
+      <li><strong>Correo de contacto (universidad):</strong> {{ email('uo295497@uniovi.es', 'inicio-2') }}</li>
+      <li>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'inicio-github', 'Abrir github.com/manugbd') }}
       </li>
-      <li><strong>GitHub:</strong> <a href="https://github.com/manugbd" target="_blank"
-          rel="noopener noreferrer">github.com/manugbd</a></li>
     </ul>
     <p>
       <a href="{{ '/perfil/' | url }}">Ver mi perfil y CV</a>
@@ -31,7 +31,11 @@ breadcrumb: Inicio
   </header>
 
   <figure>
-    <img src="{{ '/img/foto-personal-perfil.jpeg' | url }}" alt="Fotografía de Manuel García Baldó" width="320" height="320" fetchpriority="high">
+    <span data-help>
+      <img src="{{ '/img/foto-personal-perfil.jpeg' | url }}" alt="Fotografía de Manuel García Baldó" width="320"
+        height="320" fetchpriority="high" tabindex="0">
+      <span role="tooltip" id="ayuda-imagen-1" hidden>Fotografía de Manuel García Baldó</span>
+    </span>
     <figcaption>Manuel García Baldó — Gijón, Asturias</figcaption>
   </figure>
 </section>
@@ -46,7 +50,7 @@ breadcrumb: Inicio
   <ul>
     <li>
       <article>
-        <h3><a href="{{ '/perfil/' | url }}">Mi perfil y CV</a></h3>
+        <h3>Perfil y CV</h3>
         <p>Trayectoria académica, experiencia profesional y currículum vitae completo .</p>
         <p><a href="{{ '/perfil/' | url }}">Acceder al perfil &rarr;</a></p>
       </article>
@@ -54,8 +58,9 @@ breadcrumb: Inicio
 
     <li>
       <article>
-        <h3><a href="{{ '/proyectos/' | url }}">Proyectos y Portfolio</a></h3>
-        <p>Información detallada sobre proyectos personales y profesionales, como <strong>Carburo</strong> (mi Trabajo de
+        <h3>Proyectos</h3>
+        <p>Información detallada sobre proyectos personales y profesionales, como <strong>Carburo</strong> (mi Trabajo
+          de
           Fin de Grado).</p>
         <p><a href="{{ '/proyectos/' | url }}">Ver proyectos &rarr;</a></p>
       </article>
@@ -63,7 +68,7 @@ breadcrumb: Inicio
 
     <li>
       <article>
-        <h3><a href="{{ '/intereses-profesionales/' | url }}">Intereses tecnológicos</a></h3>
+        <h3>Intereses tecnológicos</h3>
         <p>Áreas de curiosidad técnica en desarrollo de software, sistemas y redes.</p>
         <p><a href="{{ '/intereses-profesionales/' | url }}">Intereses tecnológicos &rarr;</a></p>
       </article>
@@ -71,7 +76,7 @@ breadcrumb: Inicio
 
     <li>
       <article>
-        <h3><a href="{{ '/ocio/' | url }}">Intereses y Aficiones</a></h3>
+        <h3>Ocio</h3>
         <p>Aficiones personales y ocio.</p>
         <p><a href="{{ '/ocio/' | url }}">Ocio &rarr;</a></p>
       </article>
