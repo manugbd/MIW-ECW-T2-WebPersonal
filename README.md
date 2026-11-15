@@ -139,6 +139,4 @@ El sitio genera HTML estático para los tres idiomas. No descarga traducciones n
 
 ## Buscador
 
-La búsqueda está disponible en la cabecera de todas las páginas y en una página de resultados por idioma: `/buscar/`, `/en/search/` y `/fr/recherche/`. El índice estático se genera a partir del contenido renderizado durante la compilación; el navegador busca únicamente en páginas del idioma activo, sin enviar la consulta a servicios externos. La búsqueda ignora mayúsculas y tildes y actualiza los resultados al escribir. La documentación de funcionamiento, accesibilidad y mantenimiento está en [src/docs/buscador.md](src/docs/buscador.md).
-
-Tras compilar, ejecutar npm run check para comprobar enlaces internos, recursos, anclas, ARIA, selector y metadatos. npm run check:interactions comprueba el comportamiento de cierre y los mensajes de copia en los tres idiomas, incluidos errores y contexto inseguro. Son comprobaciones locales; no sustituyen la validación HTML/CSS de W3C ni una auditoría WCAG.
+La búsqueda está disponible en la cabecera de todas las páginas y en una página de resultados por idioma: `/buscar/`, `/en/search/` y `/fr/recherche/`. El índice estático se genera a partir del contenido renderizado durante la compilación; el navegador busca únicamente en páginas del idioma activo, sin enviar la consulta a servicios externos. La búsqueda ignora mayúsculas y tildes y actualiza los resultados al escribir. 
