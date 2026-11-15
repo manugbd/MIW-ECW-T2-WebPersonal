@@ -12,6 +12,7 @@ module.exports = {
   url: parsed ? parsed.href.replace(/\/$/, "") : "",
   image: "/img/foto-personal-perfil.jpeg",
   imageAlt: "Fotografía de Manuel García Baldó",
+  linkedin: "https://www.linkedin.com/",
   // Fecha de la última revisión del contenido (AAAA-MM-DD).
   updated,
   updatedLabel: new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${updated}T00:00:00Z`)),

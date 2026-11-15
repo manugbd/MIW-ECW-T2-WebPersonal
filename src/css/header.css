@@ -154,6 +154,19 @@ body > header > [role="tooltip"] {
     min-height: 44px;
     font-size: var(--font-size-base);
   }
+
+  /* Evita que el menu abierto sin JS cambie de altura cuando se inicializa. */
+  html.js body > header > button[hidden] {
+    display: inline-flex;
+  }
+
+  html.js body > header > nav#navegacion-principal {
+    display: none;
+  }
+
+  html.js body > header > button[aria-expanded="true"] ~ nav#navegacion-principal {
+    display: flex;
+  }
 }
 
 /* La página actual también se distingue sin depender del color. */
