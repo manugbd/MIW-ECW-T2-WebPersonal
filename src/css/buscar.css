@@ -104,7 +104,10 @@ main > section[data-search-app] button[data-search-clear]:not([hidden]) {
   cursor: pointer;
 }
 
-main > section[data-search-app] > form:where(:hover, :focus-within) button[data-search-clear]:not([hidden]) {
+main
+  > section[data-search-app]
+  > form:where(:hover, :focus-within)
+  button[data-search-clear]:not([hidden]) {
   opacity: 1;
   visibility: visible;
 }
@@ -118,7 +121,10 @@ main > section[data-search-app] > form:where(:hover, :focus-within) button[data-
   position: absolute;
 }
 
-main > section[data-search-app] > section[aria-labelledby="search-results-heading"] > h2 {
+main
+  > section[data-search-app]
+  > section[aria-labelledby="search-results-heading"]
+  > h2 {
   margin-top: var(--space-xl);
   margin-bottom: var(--space-md);
 }
