@@ -135,7 +135,7 @@ El sitio genera HTML estático para los tres idiomas. No descarga traducciones n
 - **Selector:** enlaces nativos dentro de details, con nombres de idiomas e icono local; funciona sin JavaScript. JavaScript añade cierre con Escape, clic exterior y salida de foco. No hay redirección automática ni elección mediante banderas.
 - **Recursos compartidos:** todos los idiomas utilizan los mismos CSS, JavaScript, imágenes, PDF y vídeo. El PDF del CV está en español y las páginas traducidas lo indican. El vídeo original se conserva, con su descripción traducida.
 - **SEO:** SITE_URL activa canónicas, alternativas hreflang recíprocas (es, en, fr y x-default), Open Graph y JSON-LD localizados. El sitemap incluye las 15 páginas indexables y excluye las tres páginas 404.
-- **Errores:** se generan /404.html, /en/404.html y /fr/404.html. El alojamiento decide qué documento devuelve para una URL inexistente; GitHub Pages utiliza el 404 de la raíz.
+- **Errores:** se generan /404.html, /en/404.html y /fr/404.html. GitHub Pages sirve el 404 de raíz; este detecta las rutas bajo `/en/` y `/fr/` y lleva a la página de error traducida.
 
 ## Buscador
 
