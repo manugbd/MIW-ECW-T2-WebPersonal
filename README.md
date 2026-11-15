@@ -94,7 +94,7 @@ El sitio genera:
 - Datos estructurados JSON-LD de persona, sitio, página y migas de pan; el perfil utiliza `ProfilePage`.
 - `404.html` con enlaces de recuperación y `noindex`.
 
-En desarrollo local, sin `SITE_URL`, se omiten los metadatos que necesitan un dominio público y el sitemap queda vacío. Para generar una copia con metadatos completos desde PowerShell, define antes de compilar:
+En desarrollo local, sin `SITE_URL`, se omiten los metadatos que necesitan un dominio público. El sitemap y `robots.txt` usan el dominio de publicación `https://author.carburo.app` para que el índice local siga siendo válido; al desplegar, `SITE_URL` de GitHub Pages sustituye esa base. Para generar una copia con todos los metadatos públicos desde PowerShell, define antes de compilar:
 
 ```powershell
 $env:SITE_URL = 'https://tu-dominio.es'
