@@ -243,7 +243,7 @@ body > header > form[data-site-search] button[type="submit"] {
   gap: var(--space-xs);
   min-height: 44px;
   padding: 0 var(--space-sm);
-  border: 1px solid var(--color-primary);
+  border: 0;
   border-radius: var(--radius-md);
   background: var(--color-primary);
   color: var(--color-text-inverse);
