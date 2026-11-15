@@ -144,7 +144,9 @@ body > header > [role="tooltip"] {
     margin-left: auto;
   }
 
-  body > header > details { order: 2; }
+  body > header > details {
+    order: 2;
+  }
 
   body > header > nav:last-of-type {
     order: 3;
@@ -175,7 +177,11 @@ body > header > [role="tooltip"] {
     display: none;
   }
 
-  html.js body > header > button[aria-expanded="true"] ~ nav#navegacion-principal {
+  html.js
+    body
+    > header
+    > button[aria-expanded="true"]
+    ~ nav#navegacion-principal {
     display: flex;
   }
 }
@@ -283,8 +289,14 @@ body > header > form[data-site-search] button[data-search-clear]:not([hidden]) {
   cursor: pointer;
 }
 
-body > header > form[data-site-search]:hover button[data-search-clear]:not([hidden]),
-body > header > form[data-site-search]:focus-within button[data-search-clear]:not([hidden]) {
+body
+  > header
+  > form[data-site-search]:hover
+  button[data-search-clear]:not([hidden]),
+body
+  > header
+  > form[data-site-search]:focus-within
+  button[data-search-clear]:not([hidden]) {
   opacity: 1;
   visibility: visible;
 }
@@ -345,8 +357,12 @@ body > header > details a[aria-current] {
 }
 
 @media (max-width: 78rem) {
-  body > header > nav:first-of-type { order: 0; }
-  body > header > nav:last-of-type { margin-left: 0; }
+  body > header > nav:first-of-type {
+    order: 0;
+  }
+  body > header > nav:last-of-type {
+    margin-left: 0;
+  }
   body > header > form[data-site-search] {
     order: 4;
     flex: 1 0 100%;
@@ -359,14 +375,22 @@ body > header > details a[aria-current] {
     display: none;
   }
 
-  html.js body > header > button[aria-expanded="true"] ~ form[data-site-search] {
+  html.js
+    body
+    > header
+    > button[aria-expanded="true"]
+    ~ form[data-site-search] {
     display: flex;
   }
-  body > header > details > summary { font-size: var(--font-size-sm); }
+  body > header > details > summary {
+    font-size: var(--font-size-sm);
+  }
 }
 
 @media (max-width: 30rem) {
-  body > header > nav:first-of-type { flex-basis: 100%; }
+  body > header > nav:first-of-type {
+    flex-basis: 100%;
+  }
 }
 
 @media (min-width: 78.001rem) {

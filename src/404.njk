@@ -6,8 +6,33 @@ description: La página que buscas no existe. Consulta el perfil y los proyectos
 permalink: /404.html
 noindex: true
 ---
+<script>
+  // GitHub Pages solo ofrece una página 404 raíz; lleva las rutas traducidas a su aviso localizado.
+  (() => {
+    const localizedPages = [
+      {
+        prefix: "{{ i18n.routes.home.en | url }}",
+        page: "{{ i18n.routes.notFound.en | url }}",
+      },
+      {
+        prefix: "{{ i18n.routes.home.fr | url }}",
+        page: "{{ i18n.routes.notFound.fr | url }}",
+      },
+    ];
+    const pathname = window.location.pathname;
+    const localizedPage = localizedPages.find(({ prefix }) => {
+      const prefixWithoutSlash = prefix.endsWith("/") ? prefix.slice(0, -1) : prefix;
+      return pathname === prefixWithoutSlash || pathname.startsWith(prefix);
+    });
+
+    if (localizedPage && pathname !== localizedPage.page) {
+      window.location.replace(localizedPage.page);
+    }
+  })();
+</script>
 <header>
   <h1>Página no encontrada</h1>
   <p>Puede que el enlace haya cambiado o que la dirección esté incompleta.</p>
-  <p><a href="{{ '/' | localizedUrl(lang) | url }}">Volver al inicio</a> o <a href="{{ '/proyectos/' | localizedUrl(lang) | url }}">explorar mis proyectos</a>.</p>
+  <p><a href="{{ '/' | localizedUrl(lang) | url }}">Volver al inicio</a> o <a
+      href="{{ '/proyectos/' | localizedUrl(lang) | url }}">explorar mis proyectos</a>.</p>
 </header>

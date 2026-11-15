@@ -11,10 +11,12 @@ module.exports = function (eleventyConfig) {
     return (route ? route[lang] : pathname) + (hash ? "#" + hash : "");
   });
 
-  const absoluteUrl = (path) =>
-    site.url
-      ? new URL(String(path).replace(/^\//, ""), `${site.url}/`).href
+  const absoluteUrl = (path) => {
+    const baseUrl = site.url || site.sitemapUrl;
+    return baseUrl
+      ? new URL(String(path).replace(/^\//, ""), `${baseUrl}/`).href
       : "";
+  };
 
   eleventyConfig.addFilter("absoluteUrl", absoluteUrl);
   eleventyConfig.addFilter("jsonLd", (value) =>

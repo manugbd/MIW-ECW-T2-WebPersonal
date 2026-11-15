@@ -94,7 +94,7 @@ El sitio genera:
 - Datos estructurados JSON-LD de persona, sitio, página y migas de pan; el perfil utiliza `ProfilePage`.
 - `404.html` con enlaces de recuperación y `noindex`.
 
-En desarrollo local, sin `SITE_URL`, se omiten los metadatos que necesitan un dominio público y el sitemap queda vacío. Para generar una copia con metadatos completos desde PowerShell, define antes de compilar:
+En desarrollo local, sin `SITE_URL`, se omiten los metadatos que necesitan un dominio público. El sitemap y `robots.txt` usan el dominio de publicación `https://author.carburo.app` para que el índice local siga siendo válido; al desplegar, `SITE_URL` de GitHub Pages sustituye esa base. Para generar una copia con todos los metadatos públicos desde PowerShell, define antes de compilar:
 
 ```powershell
 $env:SITE_URL = 'https://tu-dominio.es'
@@ -135,10 +135,8 @@ El sitio genera HTML estático para los tres idiomas. No descarga traducciones n
 - **Selector:** enlaces nativos dentro de details, con nombres de idiomas e icono local; funciona sin JavaScript. JavaScript añade cierre con Escape, clic exterior y salida de foco. No hay redirección automática ni elección mediante banderas.
 - **Recursos compartidos:** todos los idiomas utilizan los mismos CSS, JavaScript, imágenes, PDF y vídeo. El PDF del CV está en español y las páginas traducidas lo indican. El vídeo original se conserva, con su descripción traducida.
 - **SEO:** SITE_URL activa canónicas, alternativas hreflang recíprocas (es, en, fr y x-default), Open Graph y JSON-LD localizados. El sitemap incluye las 15 páginas indexables y excluye las tres páginas 404.
-- **Errores:** se generan /404.html, /en/404.html y /fr/404.html. El alojamiento decide qué documento devuelve para una URL inexistente; GitHub Pages utiliza el 404 de la raíz.
+- **Errores:** se generan /404.html, /en/404.html y /fr/404.html. GitHub Pages sirve el 404 de raíz; este detecta las rutas bajo `/en/` y `/fr/` y lleva a la página de error traducida.
 
 ## Buscador
 
-La búsqueda está disponible en la cabecera de todas las páginas y en una página de resultados por idioma: `/buscar/`, `/en/search/` y `/fr/recherche/`. El índice estático se genera a partir del contenido renderizado durante la compilación; el navegador busca únicamente en páginas del idioma activo, sin enviar la consulta a servicios externos. La búsqueda ignora mayúsculas y tildes y actualiza los resultados al escribir. La documentación de funcionamiento, accesibilidad y mantenimiento está en [src/docs/buscador.md](src/docs/buscador.md).
-
-Tras compilar, ejecutar npm run check para comprobar enlaces internos, recursos, anclas, ARIA, selector y metadatos. npm run check:interactions comprueba el comportamiento de cierre y los mensajes de copia en los tres idiomas, incluidos errores y contexto inseguro. Son comprobaciones locales; no sustituyen la validación HTML/CSS de W3C ni una auditoría WCAG.
+La búsqueda está disponible en la cabecera de todas las páginas y en una página de resultados por idioma: `/buscar/`, `/en/search/` y `/fr/recherche/`. El índice estático se genera a partir del contenido renderizado durante la compilación; el navegador busca únicamente en páginas del idioma activo, sin enviar la consulta a servicios externos. La búsqueda ignora mayúsculas y tildes y actualiza los resultados al escribir. 
