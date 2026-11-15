@@ -1,0 +1,70 @@
+---
+translationKey: search
+layout: base.njk
+lang: en
+title: Search this site
+seoTitle: Search Manuel García Baldó's personal website
+description: Search terms across the English pages of Manuel García Baldó's personal website.
+breadcrumb: Search
+permalink: /en/search/
+noindex: true
+---
+{% from "contacto.njk" import icon with context %}
+<section data-search-app
+  data-index-url="{{ '/search-index.json' | url }}"
+  data-empty="{{ t.searchEmpty | escape }}"
+  data-no-results="{{ t.searchNoResults | escape }}"
+  data-no-results-title="{{ t.searchNoResultsTitle | escape }}"
+  data-unavailable-title="{{ t.searchUnavailableTitle | escape }}"
+  data-result-count="{{ t.searchResultCount | escape }}"
+  data-loading="{{ t.searchLoading | escape }}"
+  data-error="{{ t.searchError | escape }}">
+  <header>
+    <h1>{{ t.searchPageTitle }}</h1>
+  </header>
+
+  <form action="{{ i18n.routes.search[lang] | url }}" method="get" role="search"
+    aria-label="{{ t.searchFormLabel }}" data-site-search>
+    <label for="search-query">{{ t.searchInputLabel }}</label>
+    
+    <span>
+      <span data-search-field>
+        <input id="search-query" type="search" name="search" required autocomplete="off"
+          enterkeyhint="search" placeholder="{{ t.searchPlaceholder }}">
+
+        <button type="button" data-search-clear aria-label="{{ t.searchClear }}" hidden>×</button>
+      </span>
+
+      <span data-help>
+        <button type="submit" aria-label="{{ t.searchButton }}" aria-describedby="ayuda-busqueda-pagina">
+          {{ icon('search') }}
+          <span>{{ t.searchButton }}</span>
+        </button>
+
+        <span role="tooltip" id="ayuda-busqueda-pagina" hidden>{{ t.searchTooltip }}</span>
+      </span>
+    </span>
+  </form>
+  <p id="search-empty-hint">{{ t.searchEmpty }}</p>
+
+  <p id="search-status" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true">{{ t.searchLoading }}</p>
+  <section aria-labelledby="search-results-heading">
+    <h2 id="search-results-heading" hidden>{{ t.searchResultsHeading }}</h2>
+
+    <aside id="search-feedback" aria-labelledby="search-feedback-heading" hidden>
+      <h3 id="search-feedback-heading">{{ t.searchNoResultsTitle }}</h3>
+      <p id="search-feedback-message"></p>
+      <p id="search-suggestion" hidden>
+        <span>{{ t.searchSuggestionPrefix }}</span>
+        <a id="search-suggestion-link"></a>
+        <span>{{ t.searchSuggestionSuffix }}</span>
+      </p>
+    </aside>
+
+    <ol id="search-results"></ol>
+  </section>
+</section>
+
+<noscript>
+  <p role="note">{{ t.searchNoScript }}</p>
+</noscript>

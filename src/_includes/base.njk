@@ -1,18 +1,22 @@
 {% from "contacto.njk" import email, icon, social with context %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js');</script>
   <meta name="description" content="{{ description | escape }}">
   <link rel="icon" href="{{ '/favicon.ico' | url }}">
   <meta name="author" content="{{ site.name }}">
   <title>{{ seoTitle or (title ~ ' | ' ~ site.name) }}</title>
-  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+  {% if noindex %}
+  <meta name="robots" content="noindex, follow">{% endif %}
   {% if site.url and not noindex %}
   <link rel="canonical" href="{{ page.url | absoluteUrl }}">
   {% for language in i18n.locales %}
-  <link rel="alternate" hreflang="{{ language.code }}" href="{{ i18n.routes[translationKey][language.code] | absoluteUrl }}">
+  <link rel="alternate" hreflang="{{ language.code }}"
+    href="{{ i18n.routes[translationKey][language.code] | absoluteUrl }}">
   {% endfor %}
   <link rel="alternate" hreflang="x-default" href="{{ i18n.routes[translationKey].es | absoluteUrl }}">
   <meta property="og:type" content="{{ 'profile' if translationKey == 'profile' else 'website' }}">
@@ -32,17 +36,20 @@
   <meta name="twitter:image" content="{{ site.image | absoluteUrl }}">
   <meta name="twitter:image:alt" content="{{ t.imageAlt }}">
   <meta name="google-site-verification" content="DttKDazyyCJv4j2IU443DcO6_MISbrQix5wjIcHTh7M">
-  <script type="application/ld+json">{{ {page: page, title: title, seoTitle: seoTitle, description: description, breadcrumb: breadcrumb, lang: lang, translationKey: translationKey} | structuredData | jsonLd | safe }}</script>
+  <script
+    type="application/ld+json">{{ {page: page, title: title, seoTitle: seoTitle, description: description, breadcrumb: breadcrumb, lang: lang, translationKey: translationKey} | structuredData | jsonLd | safe }}</script>
   {% endif %}
   <link rel="stylesheet" href="{{ '/css/colores.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/base.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/header.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/footer.css' | url }}">
-  {% set pageStyles = {home: 'inicio', profile: 'perfil', projects: 'proyectos', interests: 'intereses', leisure: 'intereses'} %}
+  {% set pageStyles = {home: 'inicio', profile: 'perfil', projects: 'proyectos', interests: 'intereses', leisure:
+  'intereses', search: 'buscar'} %}
   {% if pageStyles[translationKey] %}
   <link rel="stylesheet" href="{{ ('/css/' ~ pageStyles[translationKey] ~ '.css') | url }}">
   {% endif %}
 </head>
+
 <body>
   <a href="#contenido-principal">{{ t.skip }}</a>
   <header>
@@ -52,14 +59,16 @@
         <span>{{ t.personalSite }}</span>
       </a>
     </nav>
-    <button type="button" hidden aria-expanded="false" aria-controls="navegacion-principal" aria-describedby="ayuda-menu">
+    <button type="button" hidden aria-expanded="false" aria-controls="navegacion-principal"
+      aria-describedby="ayuda-menu">
       <span aria-hidden="true">&#9776;</span><span>{{ t.menu }}</span>
     </button>
     <span id="ayuda-menu" role="tooltip" hidden>{{ t.menuHelp }}</span>
     <nav id="navegacion-principal" aria-label="{{ t.mainNav }}">
       <ul>
         {% for key in ['home', 'profile', 'projects', 'interests', 'leisure'] %}
-        <li><a href="{{ i18n.routes[key][lang] | url }}"{% if translationKey == key %} aria-current="page"{% endif %}>{{ t[key] }}</a></li>
+        <li><a href="{{ i18n.routes[key][lang] | url }}" {% if translationKey==key %} aria-current="page" {% endif %}>{{
+            t[key] }}</a></li>
         {% endfor %}
       </ul>
     </nav>
@@ -69,15 +78,33 @@
       </summary>
       <ul aria-label="{{ t.languageNav }}">
         {% for language in i18n.locales %}
-        <li><a href="{{ i18n.routes[translationKey][language.code] | url }}" lang="{{ language.code }}" hreflang="{{ language.code }}"{% if language.code == lang %} aria-current="true"{% endif %}>{{ language.name }}</a></li>
+        <li><a href="{{ i18n.routes[translationKey][language.code] | url }}" lang="{{ language.code }}"
+            hreflang="{{ language.code }}" {% if language.code==lang %} aria-current="true" {% endif %}>{{ language.name
+            }}</a></li>
         {% endfor %}
       </ul>
     </details>
+    <form action="{{ i18n.routes.search[lang] | url }}" method="get" role="search" aria-label="{{ t.searchFormLabel }}"
+      data-site-search>
+      <label class="visually-hidden" for="site-search-query">{{ t.searchInputLabel }}</label>
+      <span data-search-field>
+        <input id="site-search-query" type="search" name="search" required placeholder="{{ t.searchPlaceholder }}">
+        <button type="button" data-search-clear aria-label="{{ t.searchClear }}" hidden>×</button>
+      </span>
+      <span data-help>
+        <button type="submit" aria-label="{{ t.searchButton }}" aria-describedby="ayuda-busqueda-header">
+          {{ icon('search') }}
+          <span>{{ t.searchButton }}</span>
+        </button>
+        <span role="tooltip" id="ayuda-busqueda-header" hidden>{{ t.searchTooltip }}</span>
+      </span>
+    </form>
   </header>
   <main id="contenido-principal">
     <nav aria-label="{{ t.breadcrumbs }}">
       <ol>
-        <li>{% if translationKey == 'home' %}<span aria-current="page">{{ t.home }}</span>{% else %}<a href="{{ i18n.routes.home[lang] | url }}">{{ t.home }}</a>{% endif %}</li>
+        <li>{% if translationKey == 'home' %}<span aria-current="page">{{ t.home }}</span>{% else %}<a
+            href="{{ i18n.routes.home[lang] | url }}">{{ t.home }}</a>{% endif %}</li>
         {% if translationKey != 'home' %}<li><span aria-current="page">{{ breadcrumb or title }}</span></li>{% endif %}
       </ol>
     </nav>
@@ -95,14 +122,15 @@
         <p>{{ icon('mail') }} {{ t.university }}: {{ email('uo295497@uniovi.es', 'pie-universidad', true) }}</p>
         <p>{{ icon('mail') }} {{ t.personal }}: {{ email('garciabaldo04@gmail.com', 'pie-personal', true) }}</p>
         <p>{{ social('https://github.com/manugbd', 'manugbd', 'github', 'github', t.openGithub) }}</p>
-        <p>{{ social('https://www.linkedin.com/', site.name, 'linkedin', 'linkedin', t.openLinkedin) }}</p>
+        <p>{{ social(site.linkedin, site.name, 'linkedin', 'linkedin', t.openLinkedin) }}</p>
       </address>
-      <p role="status" aria-live="polite" aria-atomic="true" data-copy-status data-copying="{{ t.copying }}" data-copied="{{ t.copied }}" data-copy-error="{{ t.copyError }}"></p>
+      <p role="status" aria-live="polite" aria-atomic="true" data-copy-status data-copying="{{ t.copying }}"
+        data-copied="{{ t.copied }}" data-copy-error="{{ t.copyError }}"></p>
     </section>
     <nav aria-labelledby="titulo-mapa">
       <h2 id="titulo-mapa">{{ t.map }}</h2>
       <ul>
-        {% for key in ['home', 'profile', 'projects', 'interests', 'leisure'] %}
+        {% for key in ['home', 'profile', 'projects', 'interests', 'leisure', 'search'] %}
         <li><a href="{{ i18n.routes[key][lang] | url }}">{{ t[key] }}</a></li>
         {% endfor %}
       </ul>
@@ -110,7 +138,8 @@
     <details>
       <summary>{{ t.help }}</summary>
       <p>{{ t.helpNav }}</p>
-      <p>{{ t.helpProfile }} <a href="{{ i18n.routes.profile[lang] | url }}">{{ t.profile }}</a>. {{ t.helpProjects }} <a href="{{ i18n.routes.projects[lang] | url }}">{{ t.projects }}</a>.</p>
+      <p>{{ t.helpProfile }} <a href="{{ i18n.routes.profile[lang] | url }}">{{ t.profile }}</a>. {{ t.helpProjects }}
+        <a href="{{ i18n.routes.projects[lang] | url }}">{{ t.projects }}</a>.</p>
       <p>{{ t.helpKeys }}</p>
       <p>{{ t.helpContact }}</p>
     </details>
@@ -120,5 +149,8 @@
     </p>
   </footer>
   <script src="{{ '/js/main.js' | url }}" defer></script>
+  {% if translationKey == 'search' %}
+  <script src="{{ '/js/search.js' | url }}" defer></script>{% endif %}
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
   const site = require("./src/_data/site.js");
   const i18n = require("./src/_data/i18n.js");
+  const buildSearchIndex = require("./scripts/build-search-index.cjs");
 
   eleventyConfig.addFilter("localizedUrl", (url, lang = "es") => {
     const [pathname, hash] = String(url).split("#");
@@ -25,6 +26,11 @@ module.exports = function (eleventyConfig) {
       .filter((item) => item.data.layout === "base.njk" && !item.data.noindex)
       .sort((a, b) => a.url.localeCompare(b.url)),
   );
+
+  // Genera el índice desde los HTML finales, tanto en compilaciones como en el servidor local.
+  eleventyConfig.on("eleventy.after", async ({ directories, dir } = {}) => {
+    await buildSearchIndex(directories?.output || dir?.output || "public");
+  });
 
   eleventyConfig.addFilter("structuredData", (data) => {
     const language = data.lang || "es";

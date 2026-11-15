@@ -53,7 +53,7 @@ for (const [key, variants] of Object.entries(routes)) for (const locale of local
   for (const link of elements(navigation).filter(n => n.name === 'a')) {
     assert(Object.values(routes).some(v => prefix + v[locale.code] === link.attribs.href), route + ': navegación en otro idioma');
   }
-  if (site.url && key !== 'notFound') {
+  if (site.url && key !== 'notFound' && key !== 'search') {
     const canonical = nodes.find(n => n.attribs.rel === 'canonical');
     assert.equal(canonical.attribs.href, absolute(route));
     const alternates = nodes.filter(n => n.name === 'link' && n.attribs.hreflang);
