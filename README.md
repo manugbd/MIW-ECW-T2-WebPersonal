@@ -13,13 +13,14 @@ Reúne mi perfil, trayectoria, proyectos e intereses en una web estática constr
 | Proyectos | Trabajos académicos y proyectos de desarrollo |
 | Tecnología y estudios | Intereses profesionales y formación |
 | Ocio y tiempo libre | Aficiones, música, naturaleza y vídeo |
+| Buscar | Búsqueda local de términos en las páginas del idioma actual |
 
 ## Tecnologías
 
 - **Eleventy (11ty)** para generar las páginas estáticas.
 - **Nunjucks** para compartir la plantilla, la navegación y el pie de página.
 - **HTML5 y CSS** para el contenido y el diseño adaptable.
-- **JavaScript** para mejoras como la actualización del año y la coordinación de reproductores.
+- **JavaScript** para mejoras de interacción y búsqueda local del sitio.
 - **GitHub Actions y GitHub Pages** para generar y publicar la web con dominio personalizado.
 
 ## Desarrollo local
@@ -52,6 +53,7 @@ src/
 ├── _includes/base.njk          # Estructura común de las páginas
 ├── index.njk                   # Inicio
 ├── perfil.njk                  # Perfil y CV
+├── buscar.njk                  # Buscador en español
 ├── proyectos.njk               # Proyectos
 ├── intereses-profesionales.njk # Tecnología y estudios
 ├── ocio.njk                    # Aficiones y multimedia
@@ -59,7 +61,8 @@ src/
 ├── js/                         # Comportamiento del sitio
 ├── img/                        # Fotografías e iconos
 ├── video/                      # Vídeo
-└── docs/                       # CV y documentos
+└── docs/                       # CV, documentos y documentación del buscador
+scripts/                        # Generación del índice y comprobaciones
 .github/workflows/              # Publicación automática
 .eleventy.js                    # Configuración del generador
 package.json                    # Dependencias y comandos
@@ -124,6 +127,7 @@ El sitio genera HTML estático para los tres idiomas. No descarga traducciones n
 | Proyectos | /proyectos/ | /en/projects/ | /fr/projets/ |
 | Intereses | /intereses-profesionales/ | /en/interests/ | /fr/interets/ |
 | Ocio | /ocio/ | /en/leisure/ | /fr/loisirs/ |
+| Buscar | /buscar/ | /en/search/ | /fr/recherche/ |
 
 - **Contenido:** las plantillas españolas siguen en la raíz de src; las traducciones se editan en src/en y src/fr.
 - **Textos compartidos y rutas:** src/_data/i18n.js contiene navegación, pie, ayuda, tooltips y mensajes. Las claves de página (translationKey) relacionan las versiones, aunque tengan nombres de URL diferentes.
@@ -132,5 +136,9 @@ El sitio genera HTML estático para los tres idiomas. No descarga traducciones n
 - **Recursos compartidos:** todos los idiomas utilizan los mismos CSS, JavaScript, imágenes, PDF y vídeo. El PDF del CV está en español y las páginas traducidas lo indican. El vídeo original se conserva, con su descripción traducida.
 - **SEO:** SITE_URL activa canónicas, alternativas hreflang recíprocas (es, en, fr y x-default), Open Graph y JSON-LD localizados. El sitemap incluye las 15 páginas indexables y excluye las tres páginas 404.
 - **Errores:** se generan /404.html, /en/404.html y /fr/404.html. El alojamiento decide qué documento devuelve para una URL inexistente; GitHub Pages utiliza el 404 de la raíz.
+
+## Buscador
+
+La búsqueda está disponible en la cabecera de todas las páginas y en una página de resultados por idioma: `/buscar/`, `/en/search/` y `/fr/recherche/`. El índice estático se genera a partir del contenido renderizado durante la compilación; el navegador busca únicamente en páginas del idioma activo, sin enviar la consulta a servicios externos. La búsqueda ignora mayúsculas y tildes y actualiza los resultados al escribir. La documentación de funcionamiento, accesibilidad y mantenimiento está en [src/docs/buscador.md](src/docs/buscador.md).
 
 Tras compilar, ejecutar npm run check para comprobar enlaces internos, recursos, anclas, ARIA, selector y metadatos. npm run check:interactions comprueba el comportamiento de cierre y los mensajes de copia en los tres idiomas, incluidos errores y contexto inseguro. Son comprobaciones locales; no sustituyen la validación HTML/CSS de W3C ni una auditoría WCAG.

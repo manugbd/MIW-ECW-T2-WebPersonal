@@ -33,6 +33,24 @@
       });
     }
 
+    // Permite vaciar cualquier buscador del sitio, también fuera de la página de resultados.
+    document.querySelectorAll('form[data-site-search]').forEach((form) => {
+      const input = form.querySelector('input[name="search"]');
+      const clearButton = form.querySelector("[data-search-clear]");
+      if (!input || !clearButton) return;
+
+      const updateClearButton = () => {
+        clearButton.hidden = input.value.length === 0;
+      };
+      input.addEventListener("input", updateClearButton);
+      clearButton.addEventListener("click", () => {
+        input.value = "";
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+        input.focus();
+      });
+      updateClearButton();
+    });
+
     const tooltipDelay = 700; // Retardo de apertura de las ayudas, en milisegundos.
 
     // Menú desplegable: sin JavaScript los enlaces permanecen visibles.
@@ -55,7 +73,7 @@
           tooltip.hidden = false;
         }, tooltipDelay);
       };
-      const mobile = window.matchMedia("(max-width: 70rem)");
+      const mobile = window.matchMedia("(max-width: 78rem)");
       const setOpen = (open) => {
         menuButton.setAttribute("aria-expanded", String(open));
         menu.hidden = mobile.matches && !open;
@@ -130,6 +148,7 @@
         }
       });
     });
+    
     // Tooltips persistentes mientras el puntero o el foco estén en su grupo.
     document.querySelectorAll("[data-help]").forEach((group) => {
       const tip = group.querySelector('[role="tooltip"]');

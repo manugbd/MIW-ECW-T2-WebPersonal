@@ -7,7 +7,7 @@ body > header {
   top: 0;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: var(--space-md) var(--space-xl);
 }
@@ -16,6 +16,9 @@ body > header {
 header > nav:first-of-type {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 100%;
 }
 
 header > nav:first-of-type a {
@@ -29,6 +32,7 @@ header > nav:first-of-type a span:first-of-type {
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--color-primary);
+  white-space: nowrap;
 }
 
 header > nav:first-of-type a span:last-of-type {
@@ -116,15 +120,15 @@ body > header > [role="tooltip"] {
   font-size: var(--font-size-sm);
 }
 
-@media (max-width: 70rem) {
+@media (max-width: 78rem) {
   body > header {
     flex-wrap: wrap;
     gap: var(--space-sm);
     padding: var(--space-md);
   }
   body > header > nav:first-of-type {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 auto;
+    min-width: max-content;
   }
 
   body > header > nav:first-of-type a {
@@ -133,10 +137,17 @@ body > header > [role="tooltip"] {
 
   body > header > nav:first-of-type a span:first-of-type {
     font-size: clamp(1rem, 4vw, 1.25rem);
-    overflow-wrap: anywhere;
   }
 
+  body > header > button {
+    order: 1;
+    margin-left: auto;
+  }
+
+  body > header > details { order: 2; }
+
   body > header > nav:last-of-type {
+    order: 3;
     flex-basis: 100%;
     max-height: calc(100dvh - 6rem);
     overflow-y: auto;
@@ -183,6 +194,99 @@ body > header {
 body > header > details {
   position: relative;
   flex-shrink: 0;
+}
+
+/* Formulario de búsqueda visible en la cabecera de todas las páginas. */
+body > header > form[data-site-search] {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex: 0 1 clamp(12rem, 24vw, 19rem);
+  min-width: 12rem;
+  max-width: 19rem;
+}
+
+body > header > form[data-site-search] > [data-search-field] {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+body > header > form[data-site-search] input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: var(--space-xs) 2.5rem var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-main);
+  font: inherit;
+}
+
+body > header > form[data-site-search] input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+body > header > form[data-site-search] [data-help] {
+  flex: 0 0 auto;
+}
+
+body > header > form[data-site-search] button[type="submit"] {
+  width: auto;
+  height: auto;
+  margin-left: 0;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: 0 var(--space-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+body > header > form[data-site-search] button[type="submit"]:hover {
+  background: var(--color-primary-hover);
+}
+
+body > header > form[data-site-search] button[type="submit"] img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+body > header > form[data-site-search] button[data-search-clear]:not([hidden]) {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  width: 2rem;
+  height: 2rem;
+  transform: translateY(-50%);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-main);
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+body > header > form[data-site-search]:hover button[data-search-clear]:not([hidden]),
+body > header > form[data-site-search]:focus-within button[data-search-clear]:not([hidden]) {
+  opacity: 1;
+  visibility: visible;
 }
 
 body > header > details > summary {
@@ -240,21 +344,39 @@ body > header > details a[aria-current] {
   font-weight: 700;
 }
 
-@media (max-width: 70rem) {
+@media (max-width: 78rem) {
   body > header > nav:first-of-type { order: 0; }
-  body > header > details { order: 1; }
-  body > header > button { order: 2; }
-  body > header > nav:last-of-type { order: 3; }
+  body > header > nav:last-of-type { margin-left: 0; }
+  body > header > form[data-site-search] {
+    order: 4;
+    flex: 1 0 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  /* En móvil, la búsqueda aparece al final del menú abierto. */
+  html.js body > header > form[data-site-search] {
+    display: none;
+  }
+
+  html.js body > header > button[aria-expanded="true"] ~ form[data-site-search] {
+    display: flex;
+  }
   body > header > details > summary { font-size: var(--font-size-sm); }
 }
 
 @media (max-width: 30rem) {
   body > header > nav:first-of-type { flex-basis: 100%; }
-  body > header > details { margin-left: auto; }
 }
 
-@media (min-width: 70.001rem) {
-  body > header > nav:first-of-type {
-    flex: 1;
+@media (min-width: 78.001rem) {
+  body > header > nav:last-of-type {
+    flex: 0 0 auto;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  body > header > nav:last-of-type ul {
+    flex-wrap: nowrap;
   }
 }
